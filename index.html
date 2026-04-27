@@ -1,0 +1,1232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Akbani Dental Clinic | Dr. Faisal Akbani | Adilabad</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Tenor+Sans&family=Nunito:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&display=swap" rel="stylesheet"/>
+<style>
+/* ═══════════════════════════════════════════════
+   RESET & VARIABLES
+═══════════════════════════════════════════════ */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;font-size:16px}
+:root{
+  --teal:       #0a8a7a;
+  --teal-dk:    #076557;
+  --teal-lt:    #e6f5f3;
+  --teal-mid:   #0fa896;
+  --mint:       #d0f0ec;
+  --white:      #ffffff;
+  --off:        #f7faf9;
+  --light:      #eef6f5;
+  --charcoal:   #1a2e2b;
+  --ink:        #2d4a45;
+  --muted:      #5e7a76;
+  --border:     #d4e8e5;
+  --gold:       #e8a020;
+  --gold-lt:    #fff8ec;
+  --red-soft:   #fff0ef;
+  --r:          1.2rem;
+  --shadow-sm:  0 2px 12px rgba(10,138,122,.08);
+  --shadow-md:  0 8px 40px rgba(10,138,122,.14);
+  --shadow-lg:  0 20px 80px rgba(10,138,122,.18);
+  --tr:         .38s cubic-bezier(.4,0,.2,1);
+}
+body{
+  font-family:'Nunito',sans-serif;
+  background:var(--white);
+  color:var(--charcoal);
+  overflow-x:hidden;
+  line-height:1.6;
+}
+img{display:block;max-width:100%}
+a{text-decoration:none;color:inherit}
+ul{list-style:none}
+
+/* scrollbar */
+::-webkit-scrollbar{width:5px}
+::-webkit-scrollbar-track{background:var(--light)}
+::-webkit-scrollbar-thumb{background:var(--teal);border-radius:4px}
+
+/* ═══════════════════════════════════════════════
+   UTILITIES
+═══════════════════════════════════════════════ */
+.container{max-width:1180px;margin:0 auto;padding:0 5vw}
+.reveal{opacity:0;transform:translateY(30px);transition:opacity .65s ease,transform .65s ease}
+.reveal.in{opacity:1;transform:none}
+.delay-1{transition-delay:.08s!important}
+.delay-2{transition-delay:.16s!important}
+.delay-3{transition-delay:.24s!important}
+.delay-4{transition-delay:.32s!important}
+.delay-5{transition-delay:.40s!important}
+
+/* ═══════════════════════════════════════════════
+   TOPBAR
+═══════════════════════════════════════════════ */
+.topbar{
+  background:var(--teal-dk);
+  padding:.45rem 5vw;
+  display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:.5rem;
+}
+.topbar-info{display:flex;gap:1.5rem;flex-wrap:wrap}
+.topbar-item{
+  display:flex;align-items:center;gap:.4rem;
+  font-size:.78rem;color:rgba(255,255,255,.8);font-weight:500;
+}
+.topbar-item span.ic{font-size:.9rem}
+.topbar-cta{
+  display:flex;align-items:center;gap:.4rem;
+  background:var(--gold);color:var(--charcoal);
+  padding:.35rem 1rem;border-radius:2rem;
+  font-size:.78rem;font-weight:700;letter-spacing:.02em;
+  transition:transform .2s,box-shadow .2s;
+}
+.topbar-cta:hover{transform:translateY(-1px);box-shadow:0 4px 16px rgba(232,160,32,.4)}
+
+/* ═══════════════════════════════════════════════
+   NAV
+═══════════════════════════════════════════════ */
+#nav{
+  position:sticky;top:0;z-index:500;
+  background:rgba(255,255,255,.97);
+  backdrop-filter:blur(16px);
+  border-bottom:1px solid var(--border);
+  transition:box-shadow var(--tr);
+}
+#nav.shadowed{box-shadow:var(--shadow-md)}
+.nav-inner{
+  display:flex;align-items:center;justify-content:space-between;
+  height:68px;padding:0 5vw;
+}
+.logo{display:flex;align-items:center;gap:.7rem}
+.logo-mark{
+  width:44px;height:44px;border-radius:12px;
+  background:linear-gradient(135deg,var(--teal),var(--teal-dk));
+  display:flex;align-items:center;justify-content:center;
+  font-size:1.4rem;box-shadow:0 4px 14px rgba(10,138,122,.3);
+  flex-shrink:0;
+}
+.logo-words{display:flex;flex-direction:column;line-height:1.15}
+.logo-main{
+  font-family:'Tenor Sans',serif;font-size:1.05rem;
+  color:var(--charcoal);letter-spacing:.01em;
+}
+.logo-sub{font-size:.68rem;color:var(--muted);font-weight:600;letter-spacing:.06em;text-transform:uppercase}
+.nav-links{display:flex;gap:.25rem}
+.nav-links a{
+  padding:.5rem 1rem;border-radius:.65rem;
+  font-size:.875rem;font-weight:600;color:var(--ink);
+  transition:background var(--tr),color var(--tr);
+}
+.nav-links a:hover,.nav-links a.active{background:var(--teal-lt);color:var(--teal-dk)}
+.nav-book{
+  display:flex;align-items:center;gap:.4rem;
+  background:var(--teal);color:#fff;
+  padding:.55rem 1.25rem;border-radius:2rem;
+  font-size:.875rem;font-weight:700;
+  transition:background var(--tr),transform .2s,box-shadow .2s;
+}
+.nav-book:hover{background:var(--teal-dk);transform:translateY(-1px);box-shadow:0 6px 20px rgba(10,138,122,.35)}
+.ham{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:.4rem}
+.ham span{display:block;width:23px;height:2px;background:var(--charcoal);border-radius:2px;transition:var(--tr)}
+
+/* mobile drawer */
+.drawer{
+  display:none;position:fixed;inset:0;z-index:999;
+  background:var(--white);flex-direction:column;
+  align-items:center;justify-content:center;gap:1.6rem;
+}
+.drawer.open{display:flex}
+.drawer a{font-family:'Tenor Sans',serif;font-size:1.8rem;color:var(--charcoal);transition:color .2s}
+.drawer a:hover{color:var(--teal)}
+.drawer-close{position:absolute;top:1.2rem;right:5vw;font-size:1.8rem;background:none;border:none;cursor:pointer;color:var(--charcoal)}
+.drawer-call{
+  display:flex;align-items:center;gap:.5rem;
+  background:var(--teal);color:#fff;
+  padding:.75rem 2rem;border-radius:2rem;font-weight:700;font-size:1rem;
+  margin-top:.5rem;
+}
+
+/* ═══════════════════════════════════════════════
+   HERO
+═══════════════════════════════════════════════ */
+#hero{
+  background:linear-gradient(145deg,#012e28 0%,#024a40 40%,#0a7a6a 100%);
+  position:relative;overflow:hidden;
+  padding:5rem 5vw 4rem;
+  min-height:90svh;display:flex;align-items:center;
+}
+
+/* decorative SVG wave bottom */
+.hero-wave{
+  position:absolute;bottom:-2px;left:0;right:0;line-height:0;
+}
+.hero-wave svg{width:100%;height:auto;display:block}
+
+/* hero grid */
+.hero-grid{
+  max-width:1180px;margin:0 auto;width:100%;
+  display:grid;grid-template-columns:1.1fr .9fr;gap:3.5rem;align-items:center;
+  position:relative;z-index:2;
+}
+
+/* left */
+.hero-eyebrow{
+  display:inline-flex;align-items:center;gap:.5rem;
+  background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.18);
+  border-radius:2rem;padding:.38rem 1rem;
+  font-size:.75rem;font-weight:700;color:rgba(255,255,255,.85);
+  letter-spacing:.08em;text-transform:uppercase;margin-bottom:1.5rem;
+}
+.hero-eyebrow::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--gold);animation:blink 1.4s infinite}
+.hero-h1{
+  font-family:'Tenor Sans',serif;
+  font-size:clamp(2.2rem,5.5vw,4.2rem);
+  color:#fff;line-height:1.12;letter-spacing:-.01em;
+  animation:fadeUp .9s ease both;
+}
+.hero-h1 .accent{
+  display:inline-block;
+  background:linear-gradient(90deg,#f0d060,var(--gold));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+  background-clip:text;
+}
+.hero-h1 em{font-style:italic;color:var(--mint)}
+.hero-sub{
+  margin-top:1.25rem;font-size:1.05rem;
+  color:rgba(255,255,255,.6);line-height:1.75;font-weight:300;
+  max-width:46ch;animation:fadeUp .9s .1s ease both;
+}
+.hero-actions{display:flex;gap:.85rem;margin-top:2.25rem;flex-wrap:wrap;animation:fadeUp .9s .2s ease both}
+.btn-gold{
+  display:flex;align-items:center;gap:.45rem;
+  background:linear-gradient(135deg,#f0c030,var(--gold));
+  color:var(--charcoal);padding:.85rem 1.9rem;border-radius:2rem;
+  font-weight:700;font-size:.95rem;border:none;cursor:pointer;
+  transition:transform .2s,box-shadow .2s;
+}
+.btn-gold:hover{transform:translateY(-2px);box-shadow:0 10px 30px rgba(232,160,32,.45)}
+.btn-outline-white{
+  display:flex;align-items:center;gap:.45rem;
+  background:rgba(255,255,255,.08);
+  color:#fff;padding:.85rem 1.9rem;border-radius:2rem;
+  font-weight:600;font-size:.95rem;
+  border:1.5px solid rgba(255,255,255,.2);cursor:pointer;
+  transition:background var(--tr),border-color var(--tr),transform .2s;
+}
+.btn-outline-white:hover{background:rgba(255,255,255,.14);border-color:rgba(255,255,255,.4);transform:translateY(-2px)}
+
+.hero-badges{display:flex;gap:.75rem;margin-top:2.25rem;flex-wrap:wrap;animation:fadeUp .9s .3s ease both}
+.h-badge{
+  display:flex;align-items:center;gap:.4rem;
+  background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12);
+  border-radius:.65rem;padding:.45rem .9rem;
+}
+.h-badge .bi{font-size:.95rem}
+.h-badge .bt{font-size:.76rem;color:rgba(255,255,255,.7);font-weight:500}
+
+/* right – doctor card */
+.doctor-card{
+  background:rgba(255,255,255,.06);
+  border:1px solid rgba(255,255,255,.12);
+  backdrop-filter:blur(20px);
+  border-radius:2rem;padding:2rem 1.75rem;
+  text-align:center;position:relative;
+  animation:fadeUp .9s .15s ease both;
+}
+.doc-avatar-ring{
+  width:130px;height:130px;border-radius:50%;
+  border:3px solid rgba(255,255,255,.2);
+  margin:0 auto 1.25rem;
+  background:linear-gradient(145deg,#0fa896,#056a5a);
+  display:flex;align-items:center;justify-content:center;
+  font-size:4.5rem;position:relative;overflow:hidden;
+  box-shadow:0 0 0 6px rgba(255,255,255,.06);
+}
+.doc-avatar-ring::after{content:'👨‍⚕️';position:absolute;bottom:-6px;left:50%;transform:translateX(-50%)}
+.doc-card-name{font-family:'Tenor Sans',serif;font-size:1.3rem;color:#fff}
+.doc-card-deg{font-size:.78rem;color:rgba(255,255,255,.5);letter-spacing:.06em;text-transform:uppercase;margin:.2rem 0 1.25rem}
+.doc-stats{display:grid;grid-template-columns:1fr 1fr;gap:.75rem}
+.dstat{background:rgba(255,255,255,.07);border-radius:.85rem;padding:.85rem .5rem}
+.dstat-n{font-family:'Tenor Sans',serif;font-size:1.55rem;color:var(--mint)}
+.dstat-l{font-size:.7rem;color:rgba(255,255,255,.45);margin-top:.1rem;font-weight:500}
+
+/* floating pills */
+.pill-float{
+  position:absolute;background:#fff;border-radius:2rem;
+  padding:.5rem 1rem;display:flex;align-items:center;gap:.4rem;
+  box-shadow:0 8px 30px rgba(0,0,0,.2);white-space:nowrap;
+}
+.pill-float.p1{top:-1.1rem;left:-1.5rem;animation:floatA 3s ease-in-out infinite}
+.pill-float.p2{bottom:-1.1rem;right:-1.5rem;animation:floatB 3s ease-in-out infinite}
+.pill-ic{font-size:1rem}
+.pill-tx{font-size:.75rem;font-weight:700;color:var(--charcoal)}
+
+/* circle deco */
+.hero-circle{
+  position:absolute;border-radius:50%;border:1px solid rgba(255,255,255,.06);pointer-events:none;
+}
+.hc1{width:500px;height:500px;top:-180px;right:-150px}
+.hc2{width:300px;height:300px;top:-50px;right:5%}
+.hc3{width:180px;height:180px;bottom:80px;left:10%}
+
+/* ═══════════════════════════════════════════════
+   SECTION HEADER
+═══════════════════════════════════════════════ */
+.sec-hdr{text-align:center;margin-bottom:3rem}
+.sec-tag{
+  display:inline-flex;align-items:center;gap:.5rem;
+  font-size:.74rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--teal);margin-bottom:.65rem;
+}
+.sec-tag::before,.sec-tag::after{content:'';display:block;width:22px;height:1.5px;background:var(--teal)}
+.sec-title{
+  font-family:'Tenor Sans',serif;
+  font-size:clamp(1.7rem,3.5vw,2.65rem);
+  color:var(--charcoal);line-height:1.2;letter-spacing:-.01em;
+}
+.sec-title em{font-style:italic;color:var(--teal)}
+.sec-desc{
+  max-width:52ch;margin:.8rem auto 0;
+  font-size:.975rem;color:var(--muted);line-height:1.75;font-weight:300;
+}
+
+/* ═══════════════════════════════════════════════
+   DOCTOR SECTION
+═══════════════════════════════════════════════ */
+#doctor{padding:5rem 0;background:var(--off)}
+.doctor-grid{display:grid;grid-template-columns:420px 1fr;gap:4rem;align-items:center;max-width:1180px;margin:0 auto;padding:0 5vw}
+.doc-visual{position:relative}
+.doc-img-card{
+  background:linear-gradient(145deg,var(--teal),var(--teal-dk));
+  border-radius:2rem;height:440px;overflow:hidden;position:relative;
+  display:flex;align-items:flex-end;justify-content:center;
+  box-shadow:var(--shadow-lg);
+}
+.doc-pattern{
+  position:absolute;inset:0;
+  background-image:radial-gradient(circle, rgba(255,255,255,.06) 1px, transparent 1px);
+  background-size:24px 24px;
+}
+.doc-big-emoji{font-size:11rem;line-height:1;margin-bottom:-1.5rem;position:relative;z-index:1}
+.doc-badge-abs{
+  position:absolute;
+  background:#fff;border-radius:1.1rem;
+  box-shadow:var(--shadow-md);
+  padding:1rem 1.25rem;text-align:center;
+}
+.doc-badge-abs.b1{top:1.5rem;right:-1.75rem}
+.doc-badge-abs.b2{bottom:2rem;left:-1.75rem}
+.dba-n{font-family:'Tenor Sans',serif;font-size:2rem;color:var(--teal);line-height:1}
+.dba-l{font-size:.68rem;color:var(--muted);font-weight:600;margin-top:.15rem;white-space:nowrap}
+.doc-info{padding:.5rem 0}
+.doc-name{font-family:'Tenor Sans',serif;font-size:2.1rem;color:var(--charcoal);margin-bottom:.2rem}
+.doc-spec-tag{
+  display:inline-flex;align-items:center;gap:.4rem;
+  background:var(--teal-lt);color:var(--teal-dk);
+  border-radius:2rem;padding:.35rem .9rem;
+  font-size:.78rem;font-weight:700;letter-spacing:.04em;margin-bottom:1.5rem;
+}
+.doc-points{display:flex;flex-direction:column;gap:1.1rem}
+.doc-point{
+  display:flex;gap:.9rem;align-items:flex-start;
+  padding:1rem 1.1rem;border-radius:var(--r);
+  border:1px solid transparent;
+  transition:background var(--tr),border-color var(--tr);
+}
+.doc-point:hover{background:var(--light);border-color:var(--border)}
+.dp-icon{
+  width:38px;height:38px;border-radius:10px;flex-shrink:0;
+  background:var(--teal-lt);display:flex;align-items:center;justify-content:center;font-size:1.05rem;
+}
+.dp-text{font-size:.93rem;color:var(--ink);line-height:1.6;font-weight:400}
+.doc-actions{display:flex;gap:.85rem;margin-top:2rem;flex-wrap:wrap}
+.btn-teal{
+  display:flex;align-items:center;gap:.4rem;
+  background:var(--teal);color:#fff;
+  padding:.8rem 1.75rem;border-radius:2rem;
+  font-weight:700;font-size:.9rem;border:none;cursor:pointer;
+  transition:background var(--tr),transform .2s,box-shadow .2s;
+}
+.btn-teal:hover{background:var(--teal-dk);transform:translateY(-1px);box-shadow:0 8px 24px rgba(10,138,122,.35)}
+.btn-border{
+  display:flex;align-items:center;gap:.4rem;
+  background:transparent;color:var(--teal);
+  border:2px solid var(--teal);
+  padding:.78rem 1.75rem;border-radius:2rem;
+  font-weight:700;font-size:.9rem;cursor:pointer;
+  transition:background var(--tr),color var(--tr),transform .2s;
+}
+.btn-border:hover{background:var(--teal);color:#fff;transform:translateY(-1px)}
+
+/* ═══════════════════════════════════════════════
+   TREATMENTS
+═══════════════════════════════════════════════ */
+#treatments{padding:5rem 0;background:#fff}
+.treat-wrap{max-width:1180px;margin:0 auto;padding:0 5vw}
+.treat-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:1.25rem;
+}
+.t-card{
+  border-radius:1.3rem;overflow:hidden;
+  border:1.5px solid var(--border);
+  background:#fff;cursor:default;
+  transition:transform var(--tr),box-shadow var(--tr),border-color var(--tr);
+}
+.t-card:hover{transform:translateY(-8px);box-shadow:0 20px 60px rgba(10,138,122,.15);border-color:var(--teal)}
+.t-img{
+  height:150px;position:relative;overflow:hidden;
+  display:flex;align-items:center;justify-content:center;
+}
+/* unique gradient per card */
+.t-img.g1{background:linear-gradient(135deg,#fef9c3,#fde68a)}
+.t-img.g2{background:linear-gradient(135deg,#d1fae5,#6ee7b7)}
+.t-img.g3{background:linear-gradient(135deg,#dbeafe,#93c5fd)}
+.t-img.g4{background:linear-gradient(135deg,#fce7f3,#f9a8d4)}
+.t-img.g5{background:linear-gradient(135deg,#ede9fe,#c4b5fd)}
+.t-img.g6{background:linear-gradient(135deg,#ccfbf1,#5eead4)}
+.t-img.g7{background:linear-gradient(135deg,#fff7ed,#fcd34d)}
+.t-img.g8{background:linear-gradient(135deg,#f0fdf4,#86efac)}
+.t-img.g9{background:linear-gradient(135deg,#fdf4ff,#d8b4fe)}
+.t-img.g10{background:linear-gradient(135deg,#fff1f2,#fca5a5)}
+.t-img.g11{background:linear-gradient(135deg,#ecfdf5,#34d399)}
+
+.t-emoji{font-size:3.8rem;line-height:1;position:relative;z-index:1}
+.t-badge{
+  position:absolute;top:.6rem;right:.6rem;
+  background:rgba(255,255,255,.75);backdrop-filter:blur(6px);
+  border-radius:2rem;padding:.25rem .6rem;
+  font-size:.62rem;font-weight:700;letter-spacing:.05em;color:var(--ink);
+  border:1px solid rgba(255,255,255,.6);
+}
+.t-body{padding:1.1rem 1.2rem 1.3rem}
+.t-name{
+  font-family:'Tenor Sans',serif;
+  font-size:1.01rem;color:var(--charcoal);margin-bottom:.4rem;
+}
+.t-desc{font-size:.8rem;color:var(--muted);line-height:1.6;font-weight:400}
+.t-tag{
+  display:inline-block;margin-top:.7rem;
+  font-size:.67rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;
+  padding:.22rem .65rem;border-radius:2rem;
+}
+.t-tag.tl{color:var(--teal-dk);background:var(--teal-lt)}
+.t-tag.gd{color:#92400e;background:#fef3c7}
+.t-tag.pp{color:#5b21b6;background:#ede9fe}
+.t-tag.re{color:#991b1b;background:#fee2e2}
+.t-tag.gr{color:#065f46;background:#d1fae5}
+
+/* ═══════════════════════════════════════════════
+   WHY US
+═══════════════════════════════════════════════ */
+#why{
+  padding:5rem 0;
+  background:linear-gradient(160deg,#012e28 0%,#024a40 100%);
+  position:relative;overflow:hidden;
+}
+#why::before{
+  content:'';position:absolute;inset:0;
+  background-image:radial-gradient(circle,rgba(255,255,255,.03) 1px,transparent 1px);
+  background-size:28px 28px;pointer-events:none;
+}
+.why-wrap{max-width:1180px;margin:0 auto;padding:0 5vw;position:relative;z-index:1}
+#why .sec-tag{color:#5eead4}
+#why .sec-tag::before,#why .sec-tag::after{background:#5eead4}
+#why .sec-title{color:#fff}
+#why .sec-desc{color:rgba(255,255,255,.45)}
+.why-grid{
+  display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin-top:3rem;
+}
+.why-card{
+  background:rgba(255,255,255,.05);
+  border:1px solid rgba(255,255,255,.09);
+  border-radius:1.5rem;padding:2rem;
+  display:grid;grid-template-columns:1fr auto;gap:1.25rem;align-items:start;
+  transition:background var(--tr),border-color var(--tr),transform var(--tr);
+  position:relative;overflow:hidden;
+}
+.why-card::after{
+  content:'';position:absolute;bottom:0;left:0;right:0;height:2px;
+  background:linear-gradient(90deg,var(--teal-mid),var(--mint));
+  transform:scaleX(0);transform-origin:left;transition:transform var(--tr);
+}
+.why-card:hover{background:rgba(255,255,255,.08);border-color:rgba(15,168,150,.3);transform:translateY(-4px)}
+.why-card:hover::after{transform:scaleX(1)}
+.why-card-left{}
+.why-card-icon{
+  width:54px;height:54px;border-radius:14px;
+  display:flex;align-items:center;justify-content:center;
+  font-size:1.6rem;margin-bottom:1.1rem;
+}
+.wci-1{background:rgba(15,168,150,.18)}
+.wci-2{background:rgba(232,160,32,.18)}
+.wci-3{background:rgba(59,130,246,.18)}
+.wci-4{background:rgba(239,68,68,.18)}
+.wci-5{background:rgba(167,139,250,.18)}
+.why-card h3{
+  font-family:'Tenor Sans',serif;
+  font-size:1.18rem;color:#fff;margin-bottom:.55rem;
+}
+.why-card p{font-size:.87rem;color:rgba(255,255,255,.5);line-height:1.75;font-weight:300}
+/* image side */
+.why-card-img{
+  width:90px;height:90px;border-radius:1.1rem;
+  display:flex;align-items:center;justify-content:center;
+  font-size:2.8rem;flex-shrink:0;
+  border:1px solid rgba(255,255,255,.08);
+  background:rgba(255,255,255,.06);
+}
+
+/* full-width fifth card */
+.why-card.full{grid-column:1/-1;grid-template-columns:auto 1fr auto}
+.why-card.full .why-card-icon{margin-bottom:0}
+
+/* ═══════════════════════════════════════════════
+   CONTACT
+═══════════════════════════════════════════════ */
+#contact{padding:5rem 0;background:var(--off)}
+.contact-wrap{max-width:1180px;margin:0 auto;padding:0 5vw}
+.contact-grid{display:grid;grid-template-columns:1fr 1.1fr;gap:3.5rem;align-items:start}
+
+/* info side */
+.c-info-side .sec-hdr{text-align:left}
+.c-info-side .sec-tag{justify-content:flex-start}
+.c-info-side .sec-tag::before{display:block}
+.c-info-side .sec-tag::after{display:none}
+.c-info-side .sec-title{text-align:left}
+.c-info-side .sec-desc{text-align:left;margin-left:0;max-width:none}
+.c-cards{display:flex;flex-direction:column;gap:1rem;margin-top:2rem}
+.c-card{
+  display:flex;gap:1rem;align-items:flex-start;
+  background:#fff;border:1.5px solid var(--border);
+  border-radius:var(--r);padding:1.25rem;
+  transition:border-color var(--tr),box-shadow var(--tr);
+}
+.c-card:hover{border-color:var(--teal);box-shadow:var(--shadow-sm)}
+.c-card-icon{
+  width:46px;height:46px;border-radius:12px;flex-shrink:0;
+  background:linear-gradient(135deg,var(--teal),var(--teal-dk));
+  display:flex;align-items:center;justify-content:center;
+  font-size:1.15rem;box-shadow:0 4px 14px rgba(10,138,122,.25);
+}
+.c-card-label{font-size:.72rem;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:var(--muted);margin-bottom:.25rem}
+.c-card-val{font-size:.95rem;font-weight:600;color:var(--charcoal);line-height:1.5}
+.c-card-val a{color:inherit;transition:color var(--tr)}
+.c-card-val a:hover{color:var(--teal)}
+
+/* map placeholder */
+.map-mock{
+  margin-top:1.5rem;border-radius:var(--r);overflow:hidden;
+  background:linear-gradient(145deg,var(--teal-lt),var(--mint));
+  height:180px;display:flex;flex-direction:column;
+  align-items:center;justify-content:center;gap:.5rem;
+  border:1.5px solid var(--border);
+}
+.map-mock .mi{font-size:2.5rem}
+.map-mock p{font-size:.8rem;color:var(--muted);font-weight:500;text-align:center;padding:0 1rem;line-height:1.5}
+
+/* form */
+.c-form-box{
+  background:#fff;border-radius:2rem;padding:2.5rem;
+  box-shadow:0 16px 60px rgba(10,138,122,.12);
+  border:1.5px solid var(--border);
+}
+.form-head{font-family:'Tenor Sans',serif;font-size:1.45rem;color:var(--charcoal);margin-bottom:.25rem}
+.form-sub{font-size:.85rem;color:var(--muted);margin-bottom:2rem}
+.f-group{margin-bottom:1.15rem}
+.f-group label{display:block;font-size:.78rem;font-weight:700;color:var(--ink);margin-bottom:.38rem;letter-spacing:.02em}
+.f-group input,.f-group select,.f-group textarea{
+  width:100%;border:1.5px solid var(--border);border-radius:.85rem;
+  padding:.75rem 1rem;font-family:'Nunito',sans-serif;font-size:.9rem;
+  color:var(--charcoal);background:var(--off);outline:none;
+  transition:border-color var(--tr),box-shadow var(--tr);
+}
+.f-group input:focus,.f-group select:focus,.f-group textarea:focus{
+  border-color:var(--teal);
+  box-shadow:0 0 0 3px rgba(10,138,122,.1);
+  background:#fff;
+}
+.f-group textarea{height:95px;resize:none}
+.f-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+.btn-submit{
+  width:100%;margin-top:.5rem;
+  background:linear-gradient(135deg,var(--teal-mid),var(--teal-dk));
+  color:#fff;border:none;padding:1rem;border-radius:.85rem;
+  font-family:'Nunito',sans-serif;font-size:1rem;font-weight:700;cursor:pointer;
+  letter-spacing:.02em;
+  transition:opacity .2s,transform .2s,box-shadow .2s;
+}
+.btn-submit:hover{opacity:.92;transform:translateY(-1px);box-shadow:0 8px 28px rgba(10,138,122,.4)}
+
+/* ═══════════════════════════════════════════════
+   FOOTER
+═══════════════════════════════════════════════ */
+footer{
+  background:var(--charcoal);
+  padding:3.5rem 5vw 1.5rem;
+}
+.foot-top{
+  display:grid;grid-template-columns:1.8fr 1fr 1fr;
+  gap:3rem;margin-bottom:2.5rem;
+}
+.f-brand{}
+.f-logo{display:flex;align-items:center;gap:.65rem;margin-bottom:1rem}
+.f-logo-mark{
+  width:40px;height:40px;border-radius:10px;
+  background:linear-gradient(135deg,var(--teal),var(--teal-dk));
+  display:flex;align-items:center;justify-content:center;font-size:1.2rem;
+}
+.f-logo-name{font-family:'Tenor Sans',serif;font-size:1.05rem;color:#fff}
+.f-brand p{font-size:.85rem;color:rgba(255,255,255,.38);line-height:1.75;font-weight:300;max-width:30ch}
+.f-col h5{
+  font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;
+  color:rgba(255,255,255,.45);margin-bottom:1rem;
+}
+.f-col ul{display:flex;flex-direction:column;gap:.55rem}
+.f-col ul li a{font-size:.855rem;color:rgba(255,255,255,.35);transition:color var(--tr);font-weight:300}
+.f-col ul li a:hover{color:var(--mint)}
+.foot-bot{
+  border-top:1px solid rgba(255,255,255,.07);
+  padding-top:1.5rem;
+  display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;
+}
+.foot-bot p{font-size:.78rem;color:rgba(255,255,255,.25)}
+.foot-socials{display:flex;gap:.5rem}
+.fsoc{
+  width:34px;height:34px;border-radius:50%;
+  background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.07);
+  display:flex;align-items:center;justify-content:center;font-size:.9rem;
+  transition:background var(--tr),transform .2s;
+}
+.fsoc:hover{background:var(--teal);transform:translateY(-2px)}
+
+/* ═══════════════════════════════════════════════
+   KEYFRAMES
+═══════════════════════════════════════════════ */
+@keyframes fadeUp{from{opacity:0;transform:translateY(26px)}to{opacity:1;transform:none}}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.3}}
+@keyframes floatA{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
+@keyframes floatB{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
+
+/* ═══════════════════════════════════════════════
+   RESPONSIVE
+═══════════════════════════════════════════════ */
+@media(max-width:1100px){
+  .treat-grid{grid-template-columns:repeat(3,1fr)}
+  .why-grid{grid-template-columns:1fr}
+  .why-card.full{grid-column:auto;grid-template-columns:auto 1fr auto}
+  .doctor-grid{grid-template-columns:1fr;max-width:520px}
+  .doc-img-card{height:320px}
+  .doc-big-emoji{font-size:8rem}
+}
+@media(max-width:860px){
+  .hero-grid{grid-template-columns:1fr}
+  .doctor-card{display:none}
+  .treat-grid{grid-template-columns:1fr 1fr}
+  .contact-grid{grid-template-columns:1fr}
+  .foot-top{grid-template-columns:1fr 1fr}
+  .nav-links,.nav-book{display:none}
+  .ham{display:flex}
+  .topbar-info{gap:.75rem}
+}
+@media(max-width:600px){
+  .treat-grid{grid-template-columns:1fr 1fr}
+  .why-card.full{grid-template-columns:1fr!important}
+  .f-row{grid-template-columns:1fr}
+  .foot-top{grid-template-columns:1fr}
+  .hero-actions{flex-direction:column;align-items:flex-start}
+  .doc-badge-abs.b1{right:-.75rem}
+  .doc-badge-abs.b2{left:-.75rem}
+  .c-form-box{padding:1.5rem}
+}
+@media(max-width:430px){
+  .treat-grid{grid-template-columns:1fr}
+  .topbar-info{flex-direction:column;gap:.3rem}
+  .doc-actions{flex-direction:column;align-items:flex-start}
+}
+</style>
+</head>
+<body>
+
+<!-- ░░░ TOPBAR ░░░ -->
+<div class="topbar">
+  <div class="topbar-info">
+    <div class="topbar-item"><span class="ic">📞</span> 9533957640</div>
+    <div class="topbar-item"><span class="ic">📍</span> Beside Apollo Medical, Station Road, Shivaji Chowk, Adilabad</div>
+    <div class="topbar-item"><span class="ic">🕐</span> Mon–Sat: 9AM – 8PM</div>
+  </div>
+  <a href="tel:9533957640" class="topbar-cta">📲 Call Now</a>
+</div>
+
+<!-- ░░░ NAV ░░░ -->
+<nav id="nav">
+  <div class="nav-inner">
+    <a href="#" class="logo">
+      <div class="logo-mark">🦷</div>
+      <div class="logo-words">
+        <span class="logo-main">Akbani Dental Clinic</span>
+        <span class="logo-sub">Dr. Faisal Akbani · BDS</span>
+      </div>
+    </a>
+    <ul class="nav-links">
+      <li><a href="#doctor">Doctor</a></li>
+      <li><a href="#treatments">Treatments</a></li>
+      <li><a href="#why">Why Us</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <a href="tel:9533957640" class="nav-book">📞 Book Appointment</a>
+    <button class="ham" id="ham" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- Mobile Drawer -->
+<div class="drawer" id="drawer">
+  <button class="drawer-close" id="dclose">✕</button>
+  <a href="#doctor" class="dlink">Doctor</a>
+  <a href="#treatments" class="dlink">Treatments</a>
+  <a href="#why" class="dlink">Why Us</a>
+  <a href="#contact" class="dlink">Contact</a>
+  <a href="tel:9533957640" class="drawer-call">📞 9533957640</a>
+</div>
+
+<!-- ░░░ HERO ░░░ -->
+<section id="hero">
+  <div class="hero-circle hc1"></div>
+  <div class="hero-circle hc2"></div>
+  <div class="hero-circle hc3"></div>
+
+  <div class="hero-grid">
+    <!-- LEFT -->
+    <div>
+      <div class="hero-eyebrow">Trusted Dental Care · Adilabad</div>
+      <h1 class="hero-h1">
+        Healthy Teeth,<br/>
+        <span class="accent">Confident</span> Smiles,<br/>
+        <em>Happy Lives.</em>
+      </h1>
+      <p class="hero-sub">Akbani Dental Clinic delivers compassionate, advanced dental care at prices every family in Adilabad can afford. Your smile is our priority.</p>
+      <div class="hero-actions">
+        <a href="#contact" class="btn-gold">📅 Book Appointment</a>
+        <a href="#treatments" class="btn-outline-white">🦷 View Treatments</a>
+      </div>
+      <div class="hero-badges">
+        <div class="h-badge"><span class="bi">✅</span><span class="bt">10+ Years Experience</span></div>
+        <div class="h-badge"><span class="bi">💰</span><span class="bt">Affordable Pricing</span></div>
+        <div class="h-badge"><span class="bi">🛡️</span><span class="bt">Safe &amp; Hygienic</span></div>
+      </div>
+    </div>
+
+    <!-- RIGHT – doctor card -->
+    <div class="hero-right">
+      <div class="doctor-card">
+        <div class="doc-avatar-ring"></div>
+        <div class="doc-card-name">Dr. Faisal Akbani</div>
+        <div class="doc-card-deg">BDS · Dental Surgeon</div>
+        <div class="doc-stats">
+          <div class="dstat"><div class="dstat-n">10+</div><div class="dstat-l">Yrs Experience</div></div>
+          <div class="dstat"><div class="dstat-n">5K+</div><div class="dstat-l">Patients Treated</div></div>
+          <div class="dstat"><div class="dstat-n">11</div><div class="dstat-l">Treatments</div></div>
+          <div class="dstat"><div class="dstat-n">98%</div><div class="dstat-l">Satisfaction</div></div>
+        </div>
+        <div class="pill-float p1"><span class="pill-ic">✅</span><span class="pill-tx">Available Today</span></div>
+        <div class="pill-float p2"><span class="pill-ic">⭐</span><span class="pill-tx">Top Rated Clinic</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="hero-wave">
+    <svg viewBox="0 0 1440 60" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0,40 C360,80 1080,0 1440,40 L1440,60 L0,60 Z" fill="#f7faf9"/>
+    </svg>
+  </div>
+</section>
+
+<!-- ░░░ DOCTOR ░░░ -->
+<section id="doctor">
+  <div class="doctor-grid">
+    <!-- visual -->
+    <div class="doc-visual reveal">
+      <div class="doc-img-card">
+        <div class="doc-pattern"></div>
+        <div class="doc-big-emoji">👨‍⚕️</div>
+      </div>
+      <div class="doc-badge-abs b1">
+        <div class="dba-n">BDS</div>
+        <div class="dba-l">Qualified Dentist</div>
+      </div>
+      <div class="doc-badge-abs b2">
+        <div class="dba-n">10+</div>
+        <div class="dba-l">Years of Practice</div>
+      </div>
+    </div>
+
+    <!-- info -->
+    <div class="reveal delay-1">
+      <div class="sec-hdr" style="text-align:left;margin-bottom:1rem">
+        <div class="sec-tag" style="justify-content:flex-start">
+          <span style="display:block;width:22px;height:1.5px;background:var(--teal);margin-right:.5rem"></span>
+          Meet The Doctor
+        </div>
+      </div>
+      <div class="doc-name">Dr. Faisal Akbani</div>
+      <div class="doc-spec-tag">🦷 BDS · Dental Surgeon</div>
+
+      <div class="doc-points">
+        <div class="doc-point">
+          <div class="dp-icon">🎓</div>
+          <p class="dp-text">Dr. Faisal Akbani holds a Bachelor of Dental Surgery (BDS) degree and brings over 10 years of expert clinical experience in general and cosmetic dentistry across Adilabad.</p>
+        </div>
+        <div class="doc-point">
+          <div class="dp-icon">🏥</div>
+          <p class="dp-text">He founded Akbani Dental Clinic with a clear mission — to bring world-class, pain-free dental care to every family in Adilabad at truly affordable costs.</p>
+        </div>
+        <div class="doc-point">
+          <div class="dp-icon">❤️</div>
+          <p class="dp-text">Renowned for his gentle chairside manner and exceptional precision, Dr. Akbani has successfully transformed thousands of smiles across a wide range of dental conditions.</p>
+        </div>
+        <div class="doc-point">
+          <div class="dp-icon">🌟</div>
+          <p class="dp-text">He continuously advances his skills through the latest dental education, ensuring every patient benefits from the most modern, evidence-based treatments available.</p>
+        </div>
+      </div>
+
+      <div class="doc-actions">
+        <a href="tel:9533957640" class="btn-teal">📞 Call: 9533957640</a>
+        <a href="#contact" class="btn-border">📅 Book Appointment</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ░░░ TREATMENTS ░░░ -->
+<section id="treatments">
+  <div class="treat-wrap">
+    <div class="sec-hdr reveal">
+      <div class="sec-tag">Treatments Offered</div>
+      <h2 class="sec-title">Comprehensive Dental <em>Care</em></h2>
+      <p class="sec-desc">From routine check-ups to advanced restorative procedures — all under one roof with the latest technology.</p>
+    </div>
+
+    <div class="treat-grid">
+
+      <!-- 1 -->
+      <div class="t-card reveal">
+        <div class="t-img g1">
+          <div class="t-emoji">🦷</div>
+          <span class="t-badge">Pain Relief</span>
+        </div>
+        <div class="t-body">
+          <div class="t-name">Root Canal Treatment</div>
+          <p class="t-desc">Removes infected pulp, cleans and seals the canal to eliminate pain and save your natural tooth from extraction.</p>
+          <span class="t-tag gd">Pain-Free</span>
+        </div>
+      </div>
+
+      <!-- 2 -->
+      <div class="t-card reveal delay-1">
+        <div class="t-img g2">
+          <div class="t-emoji">🪥</div>
+          <span class="t-badge">Restorative</span>
+        </div>
+        <div class="t-body">
+          <div class="t-name">Teeth Fillings</div>
+          <p class="t-desc">Tooth-coloured composite fillings repair cavities and damage, restoring strength and a seamless natural look.</p>
+          <span class="t-tag tl">Natural Look</span>
+        </div>
+      </div>
+
+      <!-- 3 -->
+      <div class="t-card reveal delay-2">
+        <div class="t-img g3">
+          <div class="t-emoji">😬</div>
+          <span class="t-badge">Prosthetics</span>
+        </div>
+        <div class="t-body">
+          <div class="t-name">Dentures</div>
+          <p class="t-desc">Custom removable prosthetics that replace missing teeth, restoring your smile, chewing function, and confidence.</p>
+          <span class="t-tag tl">Custom Fit</span>
+        </div>
+      </div>
+
+      <!-- 4 -->
+      <div class="t-card reveal delay-3">
+        <div class="t-img g4">
+          <div class="t-emoji">🔩</div>
+          <span class="t-badge">Permanent</span>
+        </div>
+        <div class="t-body">
+          <div class="t-name">Dental Implants</div>
+          <p class="t-desc">Titanium implants permanently replace missing teeth — they look, feel, and function exactly like your natural teeth.</p>
+          <span class="t-tag pp">Lifetime Fix</span>
+        </div>
+      </div>
+
+      <!-- 5 -->
+      <div class="t-card reveal">
+        <div class="t-img g5">
+          <div class="t-emoji">😁</div>
+          <span class="t-badge">Orthodontics</span>
+        </div>
+        <div class="t-body">
+          <div class="t-name">Teeth Braces</div>
+          <p class="t-desc">Metal or ceramic braces that correct crowding, gaps, and misalignment for a beautifully straight, healthy smile.</p>
+          <span class="t-tag pp">Straightening</span>
+        </div>
+      </div>
+
+      <!-- 6 -->
+      <div class="t-card reveal delay-1">
+        <div class="t-img g6">
+          <div class="t-emoji">🔲</div>
+          <span class="t-badge">Invisible</span>
+        </div>
+        <div class="t-body">
+          <div class="t-name">Clear Aligners</div>
+          <p class="t-desc">Discreet removable trays that gently shift teeth into position — straighten your smile without anyone noticing.</p>
+          <span class="t-tag gr">No Wires</span>
+        </div>
+      </div>
+
+      <!-- 7 -->
+      <div class="t-card reveal delay-2">
+        <div class="t-img g7">
+          <div class="t-emoji">✨</div>
+          <span class="t-badge">Preventive</span>
+        </div>
+        <div class="t-body">
+          <div class="t-name">Teeth Cleaning</div>
+          <p class="t-desc">Professional scaling and polishing remove tartar, plaque, and stains, keeping gums healthy and your smile bright.</p>
+          <span class="t-tag gd">Hygiene</span>
+        </div>
+      </div>
+
+      <!-- 8 -->
+      <div class="t-card reveal delay-3">
+        <div class="t-img g8">
+          <div class="t-emoji">👑</div>
+          <span class="t-badge">Protection</span>
+        </div>
+        <div class="t-body">
+          <div class="t-name">Tooth Crown</div>
+          <p class="t-desc">A custom ceramic cap placed over a weak or damaged tooth, restoring its shape, strength, and natural appearance.</p>
+          <span class="t-tag gr">Durable</span>
+        </div>
+      </div>
+
+      <!-- 9 -->
+      <div class="t-card reveal">
+        <div class="t-img g9">
+          <div class="t-emoji">🌉</div>
+          <span class="t-badge">Fixed</span>
+        </div>
+        <div class="t-body">
+          <div class="t-name">Dental Bridges</div>
+          <p class="t-desc">Fixed prosthetics that fill the gap of missing teeth using adjacent teeth as anchors — restore aesthetics and bite.</p>
+          <span class="t-tag pp">Non-Removable</span>
+        </div>
+      </div>
+
+      <!-- 10 -->
+      <div class="t-card reveal delay-1">
+        <div class="t-img g10">
+          <div class="t-emoji">🔧</div>
+          <span class="t-badge">Surgical</span>
+        </div>
+        <div class="t-body">
+          <div class="t-name">Tooth Extraction</div>
+          <p class="t-desc">Gentle removal of severely decayed, damaged, or impacted teeth under local anaesthesia for a smooth, safe experience.</p>
+          <span class="t-tag re">Pain Managed</span>
+        </div>
+      </div>
+
+      <!-- 11 -->
+      <div class="t-card reveal delay-2">
+        <div class="t-img g11">
+          <div class="t-emoji">🩺</div>
+          <span class="t-badge">Gum Care</span>
+        </div>
+        <div class="t-body">
+          <div class="t-name">Gingivitis Treatment</div>
+          <p class="t-desc">Deep cleaning and personalised care plan to reverse gum inflammation, prevent bone loss, and restore healthy pink gums.</p>
+          <span class="t-tag gr">Gum Health</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ░░░ WHY US ░░░ -->
+<section id="why">
+  <div class="why-wrap">
+    <div class="sec-hdr reveal">
+      <div class="sec-tag">Why Choose Us</div>
+      <h2 class="sec-title" style="color:#fff">Why <em>Akbani</em> Dental Clinic?</h2>
+      <p class="sec-desc">Five promises that set us apart — and keep our patients coming back with a smile.</p>
+    </div>
+
+    <div class="why-grid">
+
+      <!-- 1 -->
+      <div class="why-card reveal">
+        <div class="why-card-left">
+          <div class="why-card-icon wci-1">👨‍⚕️</div>
+          <h3>Experienced Dentist</h3>
+          <p>Dr. Faisal Akbani brings over 10 years of focused clinical expertise in general, restorative, and cosmetic dentistry. His precise hands and calm approach ensure every procedure — from a simple filling to a complex implant — is performed with the highest level of skill and care, giving you complete confidence in your treatment outcome.</p>
+        </div>
+        <div class="why-card-img">🏆</div>
+      </div>
+
+      <!-- 2 -->
+      <div class="why-card reveal delay-1">
+        <div class="why-card-left">
+          <div class="why-card-icon wci-2">💰</div>
+          <h3>Cost Effective</h3>
+          <p>We firmly believe that exceptional dental care should be accessible to every family, not just a privileged few. Our transparent, no-surprise pricing — combined with flexible payment options — ensures you receive top-quality treatment at rates that fit your budget, without ever compromising on the standard of care you deserve.</p>
+        </div>
+        <div class="why-card-img">💵</div>
+      </div>
+
+      <!-- 3 -->
+      <div class="why-card reveal">
+        <div class="why-card-left">
+          <div class="why-card-icon wci-3">⭐</div>
+          <h3>Best Dental Care</h3>
+          <p>From cutting-edge digital X-rays to the latest restorative materials, we invest in technology that delivers superior results. Every treatment follows international clinical protocols, and our attention to detail — in diagnosis, planning, and execution — means outcomes that consistently exceed patient expectations and stand the test of time.</p>
+        </div>
+        <div class="why-card-img">🦷</div>
+      </div>
+
+      <!-- 4 -->
+      <div class="why-card reveal delay-1">
+        <div class="why-card-left">
+          <div class="why-card-icon wci-4">🛡️</div>
+          <h3>Safety &amp; Hygiene</h3>
+          <p>Your safety is non-negotiable. We follow rigorous sterilisation and infection-control protocols — all instruments are autoclaved after each use, treatment surfaces are sanitised between every patient, and our clinic environment meets the highest standards of clinical cleanliness so you can always feel secure the moment you walk through our door.</p>
+        </div>
+        <div class="why-card-img">🧼</div>
+      </div>
+
+      <!-- 5 – full width -->
+      <div class="why-card full reveal">
+        <div class="why-card-icon wci-5" style="margin-bottom:0;flex-shrink:0">❤️</div>
+        <div>
+          <h3>All About the Patient</h3>
+          <p>Every single decision at Akbani Dental Clinic begins and ends with you. We listen patiently to your concerns, explain every step of your treatment in plain language, manage pain proactively so visits are comfortable, and craft personalised care plans that respect your time, lifestyle, and long-term oral health goals. You are never just a number — you are our priority.</p>
+        </div>
+        <div class="why-card-img" style="width:100px;height:100px;flex-shrink:0">🤝</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ░░░ CONTACT ░░░ -->
+<section id="contact">
+  <div class="contact-wrap">
+    <div class="contact-grid">
+
+      <!-- Info -->
+      <div class="c-info-side reveal">
+        <div class="sec-hdr" style="text-align:left;margin-bottom:1rem">
+          <div class="sec-tag" style="justify-content:flex-start">
+            <span style="display:block;width:22px;height:1.5px;background:var(--teal);margin-right:.5rem"></span>
+            Get In Touch
+          </div>
+          <h2 class="sec-title">Visit Us or <em>Call</em> Today</h2>
+          <p class="sec-desc" style="text-align:left;margin-left:0">We're here to help. Walk in, call, or fill the form — we'll confirm your appointment quickly.</p>
+        </div>
+
+        <div class="c-cards">
+          <div class="c-card">
+            <div class="c-card-icon">📞</div>
+            <div>
+              <div class="c-card-label">Phone / WhatsApp</div>
+              <div class="c-card-val"><a href="tel:9533957640">9533957640</a></div>
+            </div>
+          </div>
+          <div class="c-card">
+            <div class="c-card-icon">📍</div>
+            <div>
+              <div class="c-card-label">Clinic Address</div>
+              <div class="c-card-val">Beside Apollo Medical, Station Road,<br/>Shivaji Chowk, Adilabad, Telangana</div>
+            </div>
+          </div>
+          <div class="c-card">
+            <div class="c-card-icon">🕘</div>
+            <div>
+              <div class="c-card-label">Working Hours</div>
+              <div class="c-card-val">Mon – Sat: 9:00 AM – 8:00 PM<br/><span style="font-size:.82rem;color:var(--muted)">Sunday: Closed</span></div>
+            </div>
+          </div>
+          <div class="c-card">
+            <div class="c-card-icon">👨‍⚕️</div>
+            <div>
+              <div class="c-card-label">Doctor</div>
+              <div class="c-card-val">Dr. Faisal Akbani · BDS</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="map-mock">
+          <div class="mi">📍</div>
+          <p>Beside Apollo Medical, Station Road<br/>Shivaji Chowk, Adilabad, Telangana</p>
+        </div>
+      </div>
+
+      <!-- Form -->
+      <div class="reveal delay-2">
+        <div class="c-form-box">
+          <div class="form-head">Book an Appointment</div>
+          <div class="form-sub">Fill in your details — we'll confirm your slot within minutes.</div>
+          <div class="f-row">
+            <div class="f-group">
+              <label>Full Name</label>
+              <input type="text" placeholder="Your full name"/>
+            </div>
+            <div class="f-group">
+              <label>Mobile Number</label>
+              <input type="tel" placeholder="Your phone number"/>
+            </div>
+          </div>
+          <div class="f-group">
+            <label>Treatment Required</label>
+            <select>
+              <option value="">Select a treatment…</option>
+              <option>Root Canal Treatment</option>
+              <option>Teeth Fillings</option>
+              <option>Dentures</option>
+              <option>Dental Implants</option>
+              <option>Teeth Braces</option>
+              <option>Clear Aligners</option>
+              <option>Teeth Cleaning</option>
+              <option>Tooth Crown</option>
+              <option>Dental Bridges</option>
+              <option>Tooth Extraction</option>
+              <option>Gingivitis Treatment</option>
+              <option>General Checkup</option>
+            </select>
+          </div>
+          <div class="f-group">
+            <label>Preferred Date &amp; Time</label>
+            <input type="text" placeholder="e.g. Tomorrow, 11 AM or weekday mornings"/>
+          </div>
+          <div class="f-group">
+            <label>Additional Message</label>
+            <textarea placeholder="Describe your concern or any special requirements…"></textarea>
+          </div>
+          <button class="btn-submit" onclick="alert('Thank you! Dr. Faisal Akbani\'s team will contact you shortly on your number to confirm your appointment. 😊')">
+            📅 Confirm Appointment
+          </button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ░░░ FOOTER ░░░ -->
+<footer>
+  <div class="foot-top">
+    <div class="f-brand">
+      <div class="f-logo">
+        <div class="f-logo-mark">🦷</div>
+        <div>
+          <div class="f-logo-name">Akbani Dental Clinic</div>
+          <div style="font-size:.68rem;color:rgba(255,255,255,.3);letter-spacing:.06em;text-transform:uppercase">Dr. Faisal Akbani · BDS</div>
+        </div>
+      </div>
+      <p>Compassionate, affordable, and advanced dental care for every family in Adilabad and surrounding areas.</p>
+      <div style="margin-top:1.25rem;display:flex;flex-direction:column;gap:.4rem">
+        <a href="tel:9533957640" style="font-size:.84rem;color:rgba(255,255,255,.45);display:flex;align-items:center;gap:.4rem;transition:color .3s" onmouseover="this.style.color='#5eead4'" onmouseout="this.style.color='rgba(255,255,255,.45)'">
+          📞 9533957640
+        </a>
+        <span style="font-size:.82rem;color:rgba(255,255,255,.3)">📍 Station Road, Shivaji Chowk, Adilabad</span>
+      </div>
+    </div>
+
+    <div class="f-col">
+      <h5>Treatments</h5>
+      <ul>
+        <li><a href="#">Root Canal Treatment</a></li>
+        <li><a href="#">Teeth Fillings</a></li>
+        <li><a href="#">Dental Implants</a></li>
+        <li><a href="#">Dentures</a></li>
+        <li><a href="#">Teeth Braces</a></li>
+        <li><a href="#">Clear Aligners</a></li>
+        <li><a href="#">Teeth Cleaning</a></li>
+        <li><a href="#">Gingivitis Treatment</a></li>
+      </ul>
+    </div>
+
+    <div class="f-col">
+      <h5>Quick Links</h5>
+      <ul>
+        <li><a href="#doctor">About Dr. Faisal</a></li>
+        <li><a href="#treatments">All Treatments</a></li>
+        <li><a href="#why">Why Akbani Dental</a></li>
+        <li><a href="#contact">Book Appointment</a></li>
+        <li><a href="tel:9533957640">Contact Us</a></li>
+      </ul>
+
+      <h5 style="margin-top:1.5rem">Follow Us</h5>
+      <div class="foot-socials" style="margin-top:0">
+        <a href="#" class="fsoc" title="Facebook">📘</a>
+        <a href="#" class="fsoc" title="Instagram">📸</a>
+        <a href="https://wa.me/919533957640" class="fsoc" title="WhatsApp">💬</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="foot-bot">
+    <p>© 2025 Akbani Dental Clinic · Dr. Faisal Akbani · All Rights Reserved · Adilabad, Telangana</p>
+    <p>Designed with ❤️ for Better Smiles</p>
+  </div>
+</footer>
+
+<!-- ░░░ SCRIPT ░░░ -->
+<script>
+// Nav shadow on scroll
+const nav = document.getElementById('nav');
+window.addEventListener('scroll', () => nav.classList.toggle('shadowed', scrollY > 50), {passive:true});
+
+// Hamburger / drawer
+const ham = document.getElementById('ham');
+const drawer = document.getElementById('drawer');
+const dclose = document.getElementById('dclose');
+ham.addEventListener('click', () => drawer.classList.add('open'));
+dclose.addEventListener('click', () => drawer.classList.remove('open'));
+document.querySelectorAll('.dlink,.drawer-call').forEach(l => l.addEventListener('click', () => drawer.classList.remove('open')));
+
+// Scroll reveal with stagger per row
+const revEls = document.querySelectorAll('.reveal');
+const io = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.classList.add('in');
+      io.unobserve(e.target);
+    }
+  });
+}, {threshold: 0.1});
+revEls.forEach(el => io.observe(el));
+
+// Active nav link highlight
+const sections = document.querySelectorAll('section[id], #hero');
+const navLinks = document.querySelectorAll('.nav-links a');
+window.addEventListener('scroll', () => {
+  let cur = '';
+  sections.forEach(s => { if (scrollY >= s.offsetTop - 100) cur = s.id; });
+  navLinks.forEach(a => {
+    a.classList.toggle('active', a.getAttribute('href') === '#' + cur);
+  });
+}, {passive:true});
+</script>
+</body>
+</html>
