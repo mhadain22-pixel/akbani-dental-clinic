@@ -1,1 +1,1035 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Akbani Dental Clinic — Dr. Faisal Akbani</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
 
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+
+:root{
+  --navy:    #0B1F3A;
+  --navy2:   #152d52;
+  --blue:    #1A6BB5;
+  --blue-lt: #2a8de0;
+  --sky:     #E8F4FD;
+  --teal:    #0E9488;
+  --gold:    #D4A843;
+  --white:   #FFFFFF;
+  --off:     #F5F8FC;
+  --muted:   #6B7D94;
+  --text:    #1A2B3C;
+  --border:  rgba(0,0,0,.08);
+  --rad:     1.25rem;
+  --shadow:  0 8px 40px rgba(11,31,58,.12);
+  --t:       .35s cubic-bezier(.4,0,.2,1);
+}
+
+html{scroll-behavior:smooth}
+body{font-family:'Plus Jakarta Sans',sans-serif;background:var(--white);color:var(--text);overflow-x:hidden}
+
+/* ── SCROLLBAR ── */
+::-webkit-scrollbar{width:6px}
+::-webkit-scrollbar-track{background:var(--off)}
+::-webkit-scrollbar-thumb{background:var(--blue);border-radius:3px}
+
+/* ── NAV ── */
+#nav{
+  position:fixed;top:0;left:0;right:0;z-index:999;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:0 5vw;height:72px;
+  background:rgba(255,255,255,.96);
+  backdrop-filter:blur(20px);
+  border-bottom:1px solid var(--border);
+  transition:box-shadow var(--t);
+}
+#nav.scrolled{box-shadow:0 4px 30px rgba(11,31,58,.1)}
+
+.nav-logo{display:flex;align-items:center;gap:.75rem;text-decoration:none}
+.nav-logo-icon{
+  width:44px;height:44px;border-radius:12px;
+  background:linear-gradient(135deg,var(--blue),var(--teal));
+  display:flex;align-items:center;justify-content:center;
+  font-size:1.4rem;color:#fff;font-weight:700;flex-shrink:0;
+  box-shadow:0 4px 14px rgba(26,107,181,.35);
+}
+.nav-logo-text{display:flex;flex-direction:column;line-height:1.1}
+.nav-logo-main{font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:700;color:var(--navy)}
+.nav-logo-sub{font-size:.65rem;font-weight:500;color:var(--muted);letter-spacing:.08em;text-transform:uppercase}
+
+.nav-links{display:flex;gap:.25rem;list-style:none}
+.nav-links a{
+  padding:.5rem .9rem;border-radius:.6rem;
+  font-size:.875rem;font-weight:500;color:var(--text);text-decoration:none;
+  transition:color var(--t),background var(--t);
+}
+.nav-links a:hover{color:var(--blue);background:var(--sky)}
+
+.nav-cta{
+  background:linear-gradient(135deg,var(--blue),var(--teal));
+  color:#fff;border:none;padding:.65rem 1.4rem;border-radius:2rem;
+  font-family:'Plus Jakarta Sans',sans-serif;font-size:.875rem;font-weight:600;
+  cursor:pointer;text-decoration:none;
+  transition:transform .2s,box-shadow .2s;
+  box-shadow:0 4px 16px rgba(26,107,181,.3);
+}
+.nav-cta:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(26,107,181,.4)}
+
+.hamburger{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:.5rem}
+.hamburger span{display:block;width:24px;height:2px;background:var(--navy);border-radius:2px;transition:var(--t)}
+
+/* ── MOBILE MENU ── */
+.mob-menu{
+  display:none;position:fixed;inset:0;z-index:1000;
+  background:var(--navy);flex-direction:column;
+  align-items:center;justify-content:center;gap:1.75rem;
+}
+.mob-menu.open{display:flex}
+.mob-menu a{font-family:'Playfair Display',serif;font-size:1.8rem;color:rgba(255,255,255,.85);text-decoration:none;transition:color .2s}
+.mob-menu a:hover{color:var(--gold)}
+.mob-close{position:absolute;top:1.5rem;right:5vw;background:none;border:none;color:#fff;font-size:2rem;cursor:pointer}
+
+/* ── HERO ── */
+#hero{
+  min-height:100svh;padding-top:72px;
+  background:linear-gradient(160deg, var(--navy) 0%, #0d2645 55%, #0a3d62 100%);
+  display:grid;grid-template-columns:1fr 1fr;align-items:center;
+  padding-left:8vw;padding-right:0;
+  position:relative;overflow:hidden;
+}
+
+/* animated bg circles */
+.hero-bg-circle{
+  position:absolute;border-radius:50%;
+  background:radial-gradient(circle,rgba(26,107,181,.25),transparent 70%);
+  pointer-events:none;
+}
+.hbc1{width:600px;height:600px;top:-200px;right:-100px;animation:pulse 8s ease-in-out infinite}
+.hbc2{width:400px;height:400px;bottom:-100px;left:30%;animation:pulse 10s 2s ease-in-out infinite}
+@keyframes pulse{0%,100%{transform:scale(1);opacity:.5}50%{transform:scale(1.15);opacity:.8}}
+
+/* grid lines */
+.hero-grid{
+  position:absolute;inset:0;
+  background-image:
+    linear-gradient(rgba(255,255,255,.04) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(255,255,255,.04) 1px,transparent 1px);
+  background-size:60px 60px;
+  pointer-events:none;
+}
+
+.hero-left{position:relative;z-index:2;padding:5rem 0}
+.hero-badge{
+  display:inline-flex;align-items:center;gap:.6rem;
+  background:rgba(212,168,67,.15);border:1px solid rgba(212,168,67,.3);
+  color:var(--gold);border-radius:2rem;padding:.45rem 1.1rem;
+  font-size:.8rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;
+  margin-bottom:1.75rem;
+  animation:fadeUp .8s ease both;
+}
+.hero-badge::before{content:'★';font-size:.7rem}
+
+h1.hero-h{
+  font-family:'Playfair Display',serif;
+  font-size:clamp(2.6rem,5.5vw,5rem);
+  font-weight:700;line-height:1.08;
+  color:#fff;letter-spacing:-.02em;
+  animation:fadeUp .8s .1s ease both;
+}
+h1.hero-h span{
+  font-style:italic;
+  background:linear-gradient(135deg,var(--blue-lt),var(--teal));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+}
+
+.hero-sub{
+  margin-top:1.5rem;color:rgba(255,255,255,.6);
+  font-size:1.05rem;line-height:1.75;font-weight:300;max-width:44ch;
+  animation:fadeUp .8s .2s ease both;
+}
+
+.hero-btns{display:flex;gap:1rem;margin-top:2.25rem;flex-wrap:wrap;animation:fadeUp .8s .3s ease both}
+.btn-primary{
+  background:linear-gradient(135deg,var(--blue),var(--teal));
+  color:#fff;padding:.85rem 1.9rem;border-radius:2rem;
+  font-size:.95rem;font-weight:600;text-decoration:none;border:none;cursor:pointer;
+  box-shadow:0 6px 24px rgba(26,107,181,.4);
+  transition:transform .2s,box-shadow .2s;
+}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 10px 32px rgba(26,107,181,.5)}
+.btn-ghost{
+  background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);
+  color:#fff;padding:.85rem 1.9rem;border-radius:2rem;
+  font-size:.95rem;font-weight:500;text-decoration:none;
+  transition:background .2s,transform .2s;
+  backdrop-filter:blur(8px);
+}
+.btn-ghost:hover{background:rgba(255,255,255,.18);transform:translateY(-2px)}
+
+.hero-stats{
+  display:flex;gap:2.5rem;margin-top:3rem;flex-wrap:wrap;
+  animation:fadeUp .8s .4s ease both;
+}
+.hstat{display:flex;flex-direction:column;gap:.15rem}
+.hstat-n{
+  font-family:'Playfair Display',serif;
+  font-size:2.2rem;font-weight:700;color:var(--gold);line-height:1;
+}
+.hstat-l{font-size:.78rem;color:rgba(255,255,255,.5);text-transform:uppercase;letter-spacing:.06em}
+
+/* hero right visual */
+.hero-right{
+  position:relative;height:100%;min-height:100svh;
+  display:flex;align-items:center;justify-content:center;
+  overflow:hidden;
+}
+.hero-img-wrap{
+  position:relative;z-index:2;
+  width:420px;max-width:90%;
+}
+.dr-card{
+  background:rgba(255,255,255,.07);
+  backdrop-filter:blur(20px);
+  border:1px solid rgba(255,255,255,.15);
+  border-radius:2rem;padding:2.5rem 2rem;
+  text-align:center;color:#fff;
+}
+.dr-avatar{
+  width:140px;height:140px;border-radius:50%;
+  background:linear-gradient(135deg,var(--blue),var(--teal));
+  display:flex;align-items:center;justify-content:center;
+  font-size:4.5rem;margin:0 auto 1.25rem;
+  border:4px solid rgba(255,255,255,.2);
+  box-shadow:0 12px 40px rgba(0,0,0,.3);
+}
+.dr-name{font-family:'Playfair Display',serif;font-size:1.5rem;font-weight:700}
+.dr-qual{font-size:.8rem;color:rgba(255,255,255,.6);margin-top:.35rem;line-height:1.5}
+.dr-divider{width:40px;height:2px;background:linear-gradient(90deg,var(--blue-lt),var(--teal));margin:1rem auto}
+.dr-spec{font-size:.85rem;color:rgba(255,255,255,.7);line-height:1.6}
+
+.floating-tag{
+  position:absolute;background:var(--white);border-radius:1rem;
+  padding:.85rem 1.1rem;box-shadow:0 8px 30px rgba(0,0,0,.2);
+  display:flex;align-items:center;gap:.65rem;
+  font-size:.82rem;font-weight:600;color:var(--navy);
+  white-space:nowrap;
+}
+.ft1{top:25%;left:-3rem;animation:float 3s ease-in-out infinite}
+.ft2{bottom:25%;right:-2rem;animation:float 3.5s 1s ease-in-out infinite}
+.ft3{top:60%;left:-2rem;animation:float 4s .5s ease-in-out infinite}
+.ft-icon{font-size:1.3rem}
+
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
+@keyframes fadeUp{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:translateY(0)}}
+
+/* ── SHARED SECTION STYLES ── */
+section{padding:6rem 8vw}
+.sec-tag{
+  display:inline-flex;align-items:center;gap:.6rem;
+  font-size:.78rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--blue);margin-bottom:.85rem;
+}
+.sec-tag::before{content:'';display:block;width:28px;height:2px;background:linear-gradient(90deg,var(--blue),var(--teal))}
+h2.sec-title{
+  font-family:'Playfair Display',serif;
+  font-size:clamp(1.8rem,3.5vw,3rem);
+  font-weight:700;line-height:1.18;color:var(--navy);
+}
+h2.sec-title em{font-style:italic;color:var(--blue)}
+.sec-body{color:var(--muted);font-size:1rem;line-height:1.78;font-weight:300;max-width:52ch;margin-top:.9rem}
+
+.reveal{opacity:0;transform:translateY(32px);transition:opacity .7s ease,transform .7s ease}
+.reveal.visible{opacity:1;transform:none}
+
+/* ── DOCTOR SECTION ── */
+#doctor{background:var(--off)}
+.doctor-grid{display:grid;grid-template-columns:1fr 1.3fr;gap:5rem;align-items:center}
+.doctor-photo-wrap{position:relative}
+.doctor-photo{
+  width:100%;aspect-ratio:3/4;max-width:380px;border-radius:2.5rem;
+  background:linear-gradient(160deg,var(--navy) 0%,#0a3d62 100%);
+  display:flex;align-items:center;justify-content:center;
+  font-size:8rem;position:relative;overflow:hidden;
+  box-shadow:0 24px 80px rgba(11,31,58,.25);
+}
+.doctor-photo::after{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(to top,rgba(11,31,58,.6),transparent 50%);
+}
+.photo-emoji{position:relative;z-index:2}
+.doctor-badge{
+  position:absolute;bottom:-1.5rem;right:-1.5rem;
+  background:linear-gradient(135deg,var(--gold),#b8892e);
+  color:#fff;border-radius:1.25rem;padding:1rem 1.4rem;
+  box-shadow:0 8px 30px rgba(212,168,67,.4);
+  display:flex;flex-direction:column;gap:.15rem;
+  min-width:140px;
+}
+.doctor-badge-num{font-family:'Playfair Display',serif;font-size:2rem;font-weight:700;line-height:1}
+.doctor-badge-label{font-size:.75rem;font-weight:500;opacity:.9}
+
+.doctor-info{padding-left:1rem}
+.doctor-name{font-family:'Playfair Display',serif;font-size:2.2rem;font-weight:700;color:var(--navy);margin:1rem 0 .25rem}
+.doctor-title{font-size:.85rem;font-weight:600;color:var(--blue);letter-spacing:.04em;text-transform:uppercase}
+.doctor-bio{color:var(--muted);font-size:.95rem;line-height:1.78;font-weight:300;margin-top:1rem}
+.doctor-bio+.doctor-bio{margin-top:.75rem}
+
+.qual-list{display:flex;flex-direction:column;gap:.75rem;margin-top:2rem}
+.qual-item{
+  display:flex;align-items:flex-start;gap:.85rem;
+  padding:1rem 1.25rem;border-radius:1rem;
+  border:1px solid var(--border);background:var(--white);
+  transition:border-color var(--t),box-shadow var(--t);
+}
+.qual-item:hover{border-color:rgba(26,107,181,.3);box-shadow:0 4px 20px rgba(26,107,181,.1)}
+.qual-icon{
+  width:40px;height:40px;border-radius:.75rem;flex-shrink:0;
+  background:var(--sky);display:flex;align-items:center;justify-content:center;font-size:1.1rem;
+}
+.qual-text h5{font-size:.9rem;font-weight:600;color:var(--navy);margin-bottom:.2rem}
+.qual-text p{font-size:.82rem;color:var(--muted);line-height:1.5}
+
+/* ── TREATMENTS ── */
+#treatments{background:var(--white)}
+.treatments-head{text-align:center;margin-bottom:3.5rem}
+.treatments-head .sec-tag{justify-content:center}
+.treatments-head h2{text-align:center}
+.treatments-head .sec-body{margin-inline:auto;text-align:center}
+
+.treatments-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:1.25rem;
+}
+.t-card{
+  background:var(--white);border:1.5px solid var(--border);
+  border-radius:var(--rad);padding:1.75rem 1.5rem;
+  transition:transform var(--t),box-shadow var(--t),border-color var(--t);
+  cursor:default;position:relative;overflow:hidden;
+}
+.t-card::after{
+  content:'';position:absolute;left:0;bottom:0;right:0;height:3px;
+  background:linear-gradient(90deg,var(--blue),var(--teal));
+  transform:scaleX(0);transform-origin:left;transition:transform var(--t);
+}
+.t-card:hover{transform:translateY(-6px);box-shadow:var(--shadow);border-color:transparent}
+.t-card:hover::after{transform:scaleX(1)}
+
+.t-icon{
+  width:56px;height:56px;border-radius:1rem;
+  background:var(--sky);display:flex;align-items:center;
+  justify-content:center;font-size:1.75rem;margin-bottom:1.25rem;
+  transition:background var(--t);
+}
+.t-card:hover .t-icon{background:rgba(26,107,181,.12)}
+.t-card h3{font-size:1rem;font-weight:700;color:var(--navy);margin-bottom:.5rem}
+.t-card p{font-size:.82rem;color:var(--muted);line-height:1.65;font-weight:300}
+
+/* ── WHY US ── */
+#why{background:var(--navy);position:relative;overflow:hidden}
+.why-bg-dec{
+  position:absolute;top:-200px;right:-200px;
+  width:600px;height:600px;border-radius:50%;
+  background:radial-gradient(circle,rgba(14,148,136,.15),transparent 70%);
+  pointer-events:none;
+}
+.why-head{text-align:center;margin-bottom:4rem;position:relative;z-index:1}
+.why-head .sec-tag{justify-content:center;color:var(--teal)}
+.why-head .sec-tag::before{background:linear-gradient(90deg,var(--teal),var(--blue-lt))}
+.why-head h2{text-align:center;color:#fff}
+.why-head h2 em{color:var(--teal)}
+.why-head .sec-body{color:rgba(255,255,255,.5);margin-inline:auto;text-align:center}
+
+.why-grid{
+  display:grid;grid-template-columns:repeat(3,1fr);
+  gap:1.5rem;position:relative;z-index:1;
+}
+.why-card{
+  border-radius:var(--rad);overflow:hidden;
+  border:1px solid rgba(255,255,255,.08);
+  background:rgba(255,255,255,.04);
+  transition:transform var(--t),background var(--t),border-color var(--t);
+}
+.why-card:hover{transform:translateY(-6px);background:rgba(255,255,255,.08);border-color:rgba(26,107,181,.4)}
+
+.why-card-img{
+  height:200px;display:flex;align-items:center;justify-content:center;
+  font-size:5rem;position:relative;overflow:hidden;
+}
+.wci-1{background:linear-gradient(135deg,#0a3d62,#1a6bb5)}
+.wci-2{background:linear-gradient(135deg,#0e3d38,#0e9488)}
+.wci-3{background:linear-gradient(135deg,#2d1a00,#8a5a00)}
+.wci-4{background:linear-gradient(135deg,#1a0a3d,#5a3db5)}
+.wci-5{background:linear-gradient(135deg,#3d0a0a,#b53d3d)}
+
+.why-card-body{padding:1.5rem}
+.why-card-body h4{
+  font-family:'Playfair Display',serif;
+  font-size:1.15rem;font-weight:700;color:#fff;margin-bottom:.65rem;
+}
+.why-card-body p{font-size:.85rem;color:rgba(255,255,255,.55);line-height:1.7;font-weight:300}
+.why-check-list{margin-top:.85rem;display:flex;flex-direction:column;gap:.45rem}
+.why-check{display:flex;align-items:flex-start;gap:.5rem;font-size:.8rem;color:rgba(255,255,255,.5)}
+.why-check::before{
+  content:'✓';width:18px;height:18px;border-radius:50%;
+  background:rgba(14,148,136,.3);color:var(--teal);
+  display:flex;align-items:center;justify-content:center;
+  font-size:.65rem;font-weight:700;flex-shrink:0;margin-top:.05rem;
+}
+
+/* wide card */
+.why-card.wide{grid-column:span 2}
+.why-card.wide .why-card-img{height:220px}
+
+/* ── TESTIMONIALS ── */
+#testimonials{background:var(--off)}
+.testi-head{display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:2rem;margin-bottom:3rem}
+.testi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem}
+.t-review{
+  background:var(--white);border-radius:var(--rad);padding:1.75rem;
+  border:1px solid var(--border);
+  transition:transform var(--t),box-shadow var(--t);
+}
+.t-review:hover{transform:translateY(-5px);box-shadow:var(--shadow)}
+.t-stars{font-size:.9rem;color:var(--gold);margin-bottom:.75rem;letter-spacing:.05rem}
+.t-quote{font-style:italic;color:var(--text);font-size:.9rem;line-height:1.7;font-weight:300}
+.t-author{display:flex;align-items:center;gap:.75rem;margin-top:1.5rem;padding-top:1.25rem;border-top:1px solid var(--border)}
+.t-av{
+  width:44px;height:44px;border-radius:50%;font-size:1.25rem;
+  display:flex;align-items:center;justify-content:center;flex-shrink:0;
+}
+.av1{background:linear-gradient(135deg,#0a3d62,#1a6bb5)}
+.av2{background:linear-gradient(135deg,#0e3d38,#0e9488)}
+.av3{background:linear-gradient(135deg,#2d1a00,#d4a843)}
+.t-name{font-weight:700;font-size:.9rem;color:var(--navy)}
+.t-date{font-size:.75rem;color:var(--muted);margin-top:.15rem}
+
+/* ── CTA BOOKING ── */
+#booking{
+  background:linear-gradient(135deg,var(--blue) 0%,var(--teal) 100%);
+  padding:5rem 8vw;color:#fff;text-align:center;position:relative;overflow:hidden;
+}
+#booking::before{
+  content:'';position:absolute;inset:0;
+  background:url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Ccircle cx='40' cy='40' r='4' fill='rgba(255,255,255,0.05)'/%3E%3C/g%3E%3C/svg%3E");
+}
+#booking>*{position:relative;z-index:1}
+#booking .sec-tag{justify-content:center;color:rgba(255,255,255,.7)}
+#booking .sec-tag::before{background:rgba(255,255,255,.4)}
+#booking h2{color:#fff;margin-inline:auto;text-align:center}
+#booking h2 em{color:var(--gold)}
+#booking .sec-body{color:rgba(255,255,255,.75);margin-inline:auto;text-align:center;margin-bottom:2.5rem}
+
+.booking-form{
+  display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;margin-bottom:2rem;
+}
+.b-input{
+  background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.3);
+  border-radius:2rem;padding:.85rem 1.5rem;color:#fff;
+  font-family:'Plus Jakarta Sans',sans-serif;font-size:.95rem;
+  outline:none;width:220px;transition:border-color .2s,background .2s;
+}
+.b-input::placeholder{color:rgba(255,255,255,.55)}
+.b-input:focus{border-color:rgba(255,255,255,.7);background:rgba(255,255,255,.22)}
+.b-btn{
+  background:#fff;color:var(--blue);border:none;padding:.85rem 2rem;
+  border-radius:2rem;font-family:'Plus Jakarta Sans',sans-serif;
+  font-size:.95rem;font-weight:700;cursor:pointer;
+  transition:transform .2s,box-shadow .2s;
+}
+.b-btn:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(0,0,0,.25)}
+
+.contact-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem;margin-top:2.5rem}
+.c-card{
+  background:rgba(255,255,255,.12);backdrop-filter:blur(12px);
+  border:1px solid rgba(255,255,255,.2);border-radius:var(--rad);
+  padding:1.5rem;text-align:left;
+  transition:background var(--t);
+}
+.c-card:hover{background:rgba(255,255,255,.2)}
+.c-card-icon{font-size:1.6rem;margin-bottom:.75rem}
+.c-card h4{font-weight:700;font-size:.95rem;margin-bottom:.3rem}
+.c-card p{font-size:.82rem;opacity:.72;line-height:1.6;font-weight:300}
+.c-card .c-val{font-size:.92rem;font-weight:600;margin-top:.5rem}
+
+/* ── FOOTER ── */
+footer{background:var(--navy);color:rgba(255,255,255,.55);padding:4rem 8vw 2rem}
+.footer-top{display:grid;grid-template-columns:1.8fr 1fr 1fr 1fr;gap:3rem;margin-bottom:3rem}
+.f-brand .nav-logo{margin-bottom:1.1rem;display:inline-flex}
+.f-brand p{font-size:.875rem;line-height:1.72;font-weight:300;max-width:28ch}
+.f-col h5{font-size:.78rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#fff;margin-bottom:1.25rem}
+.f-col ul{list-style:none;display:flex;flex-direction:column;gap:.65rem}
+.f-col ul a{color:rgba(255,255,255,.45);text-decoration:none;font-size:.85rem;font-weight:300;transition:color .2s}
+.f-col ul a:hover{color:var(--teal)}
+.footer-bottom{
+  border-top:1px solid rgba(255,255,255,.07);
+  padding-top:2rem;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;
+  font-size:.8rem;
+}
+.f-socials{display:flex;gap:.6rem}
+.f-soc{
+  width:36px;height:36px;border-radius:50%;
+  background:rgba(255,255,255,.07);display:flex;align-items:center;justify-content:center;
+  text-decoration:none;font-size:.95rem;transition:background .2s,transform .2s;
+}
+.f-soc:hover{background:var(--blue);transform:translateY(-2px)}
+
+/* ── RESPONSIVE ── */
+@media(max-width:1100px){
+  #hero{grid-template-columns:1fr;text-align:center;padding-left:0}
+  .hero-left{padding:6rem 8vw 3rem;align-items:center;display:flex;flex-direction:column}
+  .hero-sub{text-align:center}
+  .hero-stats{justify-content:center}
+  .hero-right{min-height:auto;padding:2rem 8vw 5rem}
+  .hero-img-wrap{margin:0 auto}
+  .ft1,.ft2,.ft3{display:none}
+  .doctor-grid{grid-template-columns:1fr}
+  .doctor-photo{max-width:100%;aspect-ratio:16/9;margin-bottom:2rem;font-size:6rem}
+  .doctor-badge{bottom:-1rem;right:1rem}
+  .treatments-grid{grid-template-columns:repeat(2,1fr)}
+  .why-grid{grid-template-columns:1fr 1fr}
+  .why-card.wide{grid-column:span 2}
+  .testi-grid{grid-template-columns:1fr 1fr}
+  .contact-cards{grid-template-columns:1fr 1fr}
+  .footer-top{grid-template-columns:1fr 1fr}
+}
+
+@media(max-width:700px){
+  .nav-links,.nav-cta{display:none}
+  .hamburger{display:flex}
+  section{padding:4rem 5vw}
+  .treatments-grid{grid-template-columns:1fr 1fr}
+  .why-grid{grid-template-columns:1fr}
+  .why-card.wide{grid-column:span 1}
+  .testi-grid{grid-template-columns:1fr}
+  .testi-head{flex-direction:column;align-items:flex-start}
+  .contact-cards{grid-template-columns:1fr}
+  .booking-form{flex-direction:column;align-items:center}
+  .b-input{width:100%;max-width:340px}
+  .footer-top{grid-template-columns:1fr}
+  .footer-bottom{flex-direction:column;text-align:center}
+  .hero-stats{gap:1.25rem}
+  .doctor-grid{gap:2rem}
+  .why-card-img{height:160px;font-size:3.5rem}
+}
+
+@media(max-width:480px){
+  .treatments-grid{grid-template-columns:1fr}
+  h1.hero-h{font-size:2.3rem}
+}
+</style>
+</head>
+<body>
+
+<!-- ═══ NAV ═══════════════════════════════════════════ -->
+<nav id="nav">
+  <a href="#" class="nav-logo">
+    <div class="nav-logo-icon">A</div>
+    <div class="nav-logo-text">
+      <span class="nav-logo-main">Akbani Dental</span>
+      <span class="nav-logo-sub">Clinic</span>
+    </div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#doctor">Doctor</a></li>
+    <li><a href="#treatments">Treatments</a></li>
+    <li><a href="#why">Why Us</a></li>
+    <li><a href="#testimonials">Reviews</a></li>
+    <li><a href="#booking">Contact</a></li>
+  </ul>
+  <a href="#booking" class="nav-cta">Book Appointment</a>
+  <button class="hamburger" id="hamburger" aria-label="Open menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- Mobile Menu -->
+<div class="mob-menu" id="mobMenu">
+  <button class="mob-close" id="mobClose">✕</button>
+  <a href="#doctor" class="mob-link">Doctor</a>
+  <a href="#treatments" class="mob-link">Treatments</a>
+  <a href="#why" class="mob-link">Why Us</a>
+  <a href="#testimonials" class="mob-link">Reviews</a>
+  <a href="#booking" class="mob-link">Contact</a>
+  <a href="#booking" class="btn-primary" style="margin-top:.5rem">Book Appointment</a>
+</div>
+
+<!-- ═══ HERO ════════════════════════════════════════════ -->
+<section id="hero">
+  <div class="hero-bg-circle hbc1"></div>
+  <div class="hero-bg-circle hbc2"></div>
+  <div class="hero-grid"></div>
+
+  <div class="hero-left">
+    <span class="hero-badge">Trusted Excellence Since 2008</span>
+    <h1 class="hero-h">
+      Your Smile Is<br/>Our <span>Greatest</span><br/>Achievement.
+    </h1>
+    <p class="hero-sub">
+      Akbani Dental Clinic delivers world-class dental care with compassion, precision, and cutting-edge technology — making every patient feel confident and cared for.
+    </p>
+    <div class="hero-btns">
+      <a href="#booking" class="btn-primary">📅 Book Free Consultation</a>
+      <a href="#treatments" class="btn-ghost">Explore Treatments</a>
+    </div>
+    <div class="hero-stats">
+      <div class="hstat"><span class="hstat-n">15+</span><span class="hstat-l">Years of Care</span></div>
+      <div class="hstat"><span class="hstat-n">8K+</span><span class="hstat-l">Happy Patients</span></div>
+      <div class="hstat"><span class="hstat-n">99%</span><span class="hstat-l">Satisfaction</span></div>
+    </div>
+  </div>
+
+  <div class="hero-right">
+    <div class="hero-img-wrap">
+      <div class="dr-card">
+        <div class="dr-avatar">👨‍⚕️</div>
+        <div class="dr-name">Dr. Faisal Akbani</div>
+        <div class="dr-qual">BDS, MDS (Prosthodontics)<br/>Fellowship in Implantology — ICOI</div>
+        <div class="dr-divider"></div>
+        <div class="dr-spec">
+          Senior Consultant · Prosthodontist<br/>
+          Implantologist &amp; Smile Design Expert
+        </div>
+      </div>
+      <div class="floating-tag ft1"><span class="ft-icon">🏆</span>Award-Winning Dentist</div>
+      <div class="floating-tag ft2"><span class="ft-icon">😁</span>5,000+ Smiles Transformed</div>
+      <div class="floating-tag ft3"><span class="ft-icon">✅</span>ISO Certified Clinic</div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ DOCTOR ══════════════════════════════════════════ -->
+<section id="doctor">
+  <div class="doctor-grid">
+    <div class="doctor-photo-wrap reveal">
+      <div class="doctor-photo">
+        <span class="photo-emoji">👨‍⚕️</span>
+      </div>
+      <div class="doctor-badge">
+        <span class="doctor-badge-num">15+</span>
+        <span class="doctor-badge-label">Years Experience</span>
+      </div>
+    </div>
+
+    <div class="doctor-info reveal">
+      <div class="sec-tag">Meet Your Doctor</div>
+      <div class="doctor-title">Senior Consultant Dentist</div>
+      <div class="doctor-name">Dr. Faisal Akbani</div>
+
+      <p class="doctor-bio">
+        Dr. Faisal Akbani is a highly accomplished dental professional with over 15 years of dedicated clinical experience. He holds a Bachelor of Dental Surgery (BDS) and a Master of Dental Surgery (MDS) specialising in Prosthodontics, along with a prestigious Fellowship in Implantology from the International Congress of Oral Implantologists (ICOI).
+      </p>
+      <p class="doctor-bio">
+        Renowned for his gentle chairside manner and meticulous attention to detail, Dr. Akbani has successfully transformed thousands of smiles — from routine cleanings to complete smile makeovers. He combines the latest digital dentistry techniques with a deeply patient-centred philosophy, ensuring every individual receives the highest standard of care.
+      </p>
+      <p class="doctor-bio">
+        Dr. Akbani is an active member of the Indian Dental Association (IDA), the Academy of Osseointegration, and regularly participates in global dental conferences to stay at the forefront of advancements in implantology and cosmetic dentistry.
+      </p>
+
+      <div class="qual-list">
+        <div class="qual-item">
+          <div class="qual-icon">🎓</div>
+          <div class="qual-text">
+            <h5>BDS — Bachelor of Dental Surgery</h5>
+            <p>Government Dental College, Aurangabad · Graduated with Distinction</p>
+          </div>
+        </div>
+        <div class="qual-item">
+          <div class="qual-icon">🏅</div>
+          <div class="qual-text">
+            <h5>MDS — Prosthodontics &amp; Implantology</h5>
+            <p>Dr. D.Y. Patil University, Pune · Gold Medalist</p>
+          </div>
+        </div>
+        <div class="qual-item">
+          <div class="qual-icon">🌐</div>
+          <div class="qual-text">
+            <h5>Fellowship — ICOI (International Implantology)</h5>
+            <p>International Congress of Oral Implantologists — USA</p>
+          </div>
+        </div>
+        <div class="qual-item">
+          <div class="qual-icon">🦷</div>
+          <div class="qual-text">
+            <h5>Certified Invisalign® Provider &amp; Smile Design Expert</h5>
+            <p>Advanced training in Digital Smile Design (DSD) — Milan, Italy</p>
+          </div>
+        </div>
+        <div class="qual-item">
+          <div class="qual-icon">👥</div>
+          <div class="qual-text">
+            <h5>Member — Indian Dental Association (IDA)</h5>
+            <p>Life Member · Speaker at National &amp; International Dental Conferences</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ TREATMENTS ══════════════════════════════════════ -->
+<section id="treatments">
+  <div class="treatments-head reveal">
+    <div class="sec-tag">Comprehensive Care</div>
+    <h2 class="sec-title">Treatments We <em>Offer</em></h2>
+    <p class="sec-body">We provide a full spectrum of dental treatments using the most advanced techniques and technology available — all under one roof.</p>
+  </div>
+
+  <div class="treatments-grid">
+    <div class="t-card reveal">
+      <div class="t-icon">🦷</div>
+      <h3>Root Canal Treatment</h3>
+      <p>A pain-free procedure to save severely infected or decayed teeth. Using rotary endodontics and digital imaging, we make root canals comfortable and precise.</p>
+    </div>
+    <div class="t-card reveal">
+      <div class="t-icon">🪨</div>
+      <h3>Teeth Fillings</h3>
+      <p>Tooth-coloured composite fillings that blend seamlessly with your natural teeth, restoring full function and aesthetics without silver amalgam.</p>
+    </div>
+    <div class="t-card reveal">
+      <div class="t-icon">😬</div>
+      <h3>Dentures</h3>
+      <p>Custom-crafted full and partial dentures that fit comfortably and look completely natural — restoring your smile, bite, and confidence.</p>
+    </div>
+    <div class="t-card reveal">
+      <div class="t-icon">🦴</div>
+      <h3>Dental Implants</h3>
+      <p>Titanium implants that permanently replace missing teeth. Guided surgery ensures precision placement for lasting results that look and feel completely natural.</p>
+    </div>
+    <div class="t-card reveal">
+      <div class="t-icon">📐</div>
+      <h3>Teeth Braces</h3>
+      <p>Metal and ceramic braces designed to correct misaligned teeth and bite issues. Our orthodontic plans are tailored to achieve the ideal result for every patient.</p>
+    </div>
+    <div class="t-card reveal">
+      <div class="t-icon">🔲</div>
+      <h3>Clear Aligners</h3>
+      <p>Virtually invisible, removable aligners (Invisalign® &amp; others) that straighten teeth discreetly — perfect for adults and teens wanting braces without the look.</p>
+    </div>
+    <div class="t-card reveal">
+      <div class="t-icon">✨</div>
+      <h3>Teeth Cleaning</h3>
+      <p>Professional scaling, polishing, and deep cleaning to remove tartar, stains, and bacteria — the foundation of a healthy, bright, long-lasting smile.</p>
+    </div>
+    <div class="t-card reveal">
+      <div class="t-icon">👑</div>
+      <h3>Tooth Crown</h3>
+      <p>Porcelain and zirconia crowns that restore damaged, cracked, or weakened teeth to full strength while matching the shape and shade of your natural teeth.</p>
+    </div>
+    <div class="t-card reveal">
+      <div class="t-icon">🔗</div>
+      <h3>Dental Bridges</h3>
+      <p>Fixed dental bridges that seamlessly fill the gap left by missing teeth, restoring your bite, smile, and preventing remaining teeth from shifting.</p>
+    </div>
+    <div class="t-card reveal">
+      <div class="t-icon">🩺</div>
+      <h3>Tooth Extraction</h3>
+      <p>Gentle, virtually painless extractions — including surgical removal of impacted wisdom teeth — performed with care to ensure quick, comfortable recovery.</p>
+    </div>
+    <div class="t-card reveal">
+      <div class="t-icon">🫁</div>
+      <h3>Gingivitis Treatment</h3>
+      <p>Diagnosis and treatment of gum disease at every stage — from mild gingivitis to advanced periodontitis — to protect your gum health and prevent tooth loss.</p>
+    </div>
+    <div class="t-card reveal" style="background:var(--sky);border-color:rgba(26,107,181,.2)">
+      <div class="t-icon" style="background:rgba(26,107,181,.12)">🌟</div>
+      <h3 style="color:var(--navy)">Smile Makeover</h3>
+      <p>Bespoke cosmetic treatment plans combining veneers, whitening, bonding, and contouring — crafted using Digital Smile Design technology to preview your new smile.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ WHY AKBANI ══════════════════════════════════════ -->
+<section id="why">
+  <div class="why-bg-dec"></div>
+  <div class="why-head reveal">
+    <div class="sec-tag">Why Choose Us</div>
+    <h2 class="sec-title">Why <em>Akbani Dental Clinic</em>?</h2>
+    <p class="sec-body">We believe great dental care goes far beyond the chair. Here's why thousands of patients choose us and keep coming back.</p>
+  </div>
+
+  <div class="why-grid">
+
+    <!-- 1: Experienced Dentist -->
+    <div class="why-card reveal">
+      <div class="why-card-img wci-1">
+        <span style="position:relative;z-index:2">🎓</span>
+        <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(10,61,98,.5),transparent 60%)"></div>
+      </div>
+      <div class="why-card-body">
+        <h4>Experienced Dentist</h4>
+        <p>Dr. Faisal Akbani brings over 15 years of hands-on expertise and international-level training to every single appointment.</p>
+        <div class="why-check-list">
+          <div class="why-check">MDS Gold Medalist &amp; ICOI Fellow</div>
+          <div class="why-check">Trained at Milan, Italy in Digital Smile Design</div>
+          <div class="why-check">8,000+ successful procedures performed</div>
+          <div class="why-check">Regular speaker at dental conferences</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 2: Cost Effective -->
+    <div class="why-card reveal">
+      <div class="why-card-img wci-2">
+        <span style="position:relative;z-index:2">💰</span>
+        <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(14,61,56,.5),transparent 60%)"></div>
+      </div>
+      <div class="why-card-body">
+        <h4>Cost Effective</h4>
+        <p>We believe exceptional dental care should be accessible to everyone. Our transparent pricing means no hidden charges — ever.</p>
+        <div class="why-check-list">
+          <div class="why-check">Affordable treatment packages for every budget</div>
+          <div class="why-check">Easy EMI &amp; flexible payment options available</div>
+          <div class="why-check">Free first consultation for new patients</div>
+          <div class="why-check">Insurance claim assistance provided</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 3: Best Dental Care — wide -->
+    <div class="why-card wide reveal">
+      <div class="why-card-img wci-3" style="background:linear-gradient(135deg,#1a0a3d,#3d2080)">
+        <span style="position:relative;z-index:2;font-size:4.5rem">🏆</span>
+        <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(26,10,61,.5),transparent 60%)"></div>
+      </div>
+      <div class="why-card-body">
+        <h4>Best Dental Care</h4>
+        <p>From routine checkups to complex smile transformations, we use state-of-the-art technology and evidence-based techniques to deliver results that truly last. Our clinic is equipped with 3D cone-beam CT imaging, digital X-rays, intraoral scanners, and laser dentistry units.</p>
+        <div class="why-check-list" style="display:grid;grid-template-columns:1fr 1fr;gap:.45rem">
+          <div class="why-check">3D Cone-Beam CT Imaging</div>
+          <div class="why-check">Digital Intraoral Scanners</div>
+          <div class="why-check">Laser Dentistry Technology</div>
+          <div class="why-check">Digital Smile Design (DSD)</div>
+          <div class="why-check">Same-day Crown Fabrication</div>
+          <div class="why-check">Computer-Guided Implant Surgery</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 4: Safety & Hygiene -->
+    <div class="why-card reveal">
+      <div class="why-card-img" style="background:linear-gradient(135deg,#0d3d1a,#1ab55a)">
+        <span style="position:relative;z-index:2">🛡️</span>
+        <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(13,61,26,.5),transparent 60%)"></div>
+      </div>
+      <div class="why-card-body">
+        <h4>Safety &amp; Hygiene</h4>
+        <p>Your safety is non-negotiable. We follow the strictest sterilisation and infection-control protocols recommended by the Dental Council of India.</p>
+        <div class="why-check-list">
+          <div class="why-check">ISO-certified autoclave sterilisation</div>
+          <div class="why-check">Single-use sterile instruments &amp; gloves</div>
+          <div class="why-check">Barrier-protected surfaces &amp; air purifiers</div>
+          <div class="why-check">Fully sanitised operatories between patients</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 5: All About the Patient -->
+    <div class="why-card reveal">
+      <div class="why-card-img" style="background:linear-gradient(135deg,#3d1a0a,#b55a1a)">
+        <span style="position:relative;z-index:2">❤️</span>
+        <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(61,26,10,.5),transparent 60%)"></div>
+      </div>
+      <div class="why-card-body">
+        <h4>All About the Patient</h4>
+        <p>At Akbani Dental, the patient is always at the heart of everything we do. We listen carefully, explain thoroughly, and treat gently — because your comfort and trust matter above all else.</p>
+        <div class="why-check-list">
+          <div class="why-check">Anxiety-free, fear-friendly environment</div>
+          <div class="why-check">Detailed treatment explanation before every procedure</div>
+          <div class="why-check">Flexible morning, evening &amp; weekend slots</div>
+          <div class="why-check">Post-treatment follow-up calls included</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══ TESTIMONIALS ════════════════════════════════════ -->
+<section id="testimonials">
+  <div class="testi-head reveal">
+    <div>
+      <div class="sec-tag">Patient Stories</div>
+      <h2 class="sec-title">Real People, <em>Real Smiles</em></h2>
+    </div>
+    <div style="display:flex;align-items:center;gap:.5rem;color:var(--gold);font-size:.9rem;font-weight:600">
+      ★★★★★ &nbsp;4.9 Google Rating
+    </div>
+  </div>
+
+  <div class="testi-grid">
+    <div class="t-review reveal">
+      <div class="t-stars">★★★★★</div>
+      <p class="t-quote">"Dr. Faisal Akbani completely transformed my smile! I had always been self-conscious about my teeth, but after the smile makeover at Akbani Dental Clinic, I can't stop smiling. The treatment was painless and the result exceeded all my expectations."</p>
+      <div class="t-author">
+        <div class="t-av av1">😊</div>
+        <div>
+          <div class="t-name">Fatima Sheikh</div>
+          <div class="t-date">Patient since 2021 · Smile Makeover</div>
+        </div>
+      </div>
+    </div>
+    <div class="t-review reveal">
+      <div class="t-stars">★★★★★</div>
+      <p class="t-quote">"I was terrified of dental implants, but Dr. Akbani made the entire process so smooth and comfortable. The computer-guided surgery was incredibly precise and I had zero pain. My implants look just like real teeth — absolutely remarkable work!"</p>
+      <div class="t-author">
+        <div class="t-av av2">😄</div>
+        <div>
+          <div class="t-name">Arif Qureshi</div>
+          <div class="t-date">Patient since 2022 · Dental Implants</div>
+        </div>
+      </div>
+    </div>
+    <div class="t-review reveal">
+      <div class="t-stars">★★★★★</div>
+      <p class="t-quote">"My daughter was very nervous about braces, but the staff at Akbani Dental made her feel so comfortable. Dr. Akbani explained everything step by step and the results after 18 months were wonderful. The clinic is spotlessly clean and very professional."</p>
+      <div class="t-author">
+        <div class="t-av av3">🙂</div>
+        <div>
+          <div class="t-name">Sana Patel</div>
+          <div class="t-date">Patient since 2023 · Braces</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ BOOKING ══════════════════════════════════════════ -->
+<section id="booking">
+  <div class="sec-tag">Get Started Today</div>
+  <h2 class="sec-title" style="font-size:clamp(1.8rem,3.5vw,2.8rem)">Book Your <em>Appointment</em></h2>
+  <p class="sec-body">Take the first step towards your best smile. Your first consultation is completely free — no obligation.</p>
+
+  <div class="booking-form reveal">
+    <input type="text" class="b-input" placeholder="Your Full Name"/>
+    <input type="tel" class="b-input" placeholder="Phone Number"/>
+    <select class="b-input" style="cursor:pointer">
+      <option value="" disabled selected>Select Treatment</option>
+      <option>Root Canal Treatment</option>
+      <option>Teeth Fillings</option>
+      <option>Dentures</option>
+      <option>Dental Implants</option>
+      <option>Teeth Braces</option>
+      <option>Clear Aligners</option>
+      <option>Teeth Cleaning</option>
+      <option>Tooth Crown</option>
+      <option>Dental Bridges</option>
+      <option>Tooth Extraction</option>
+      <option>Gingivitis Treatment</option>
+      <option>Smile Makeover</option>
+      <option>General Checkup</option>
+    </select>
+    <button class="b-btn" onclick="alert('Thank you! Our team will call you shortly to confirm your appointment at Akbani Dental Clinic.')">Book Free Consultation</button>
+  </div>
+
+  <div class="contact-cards reveal">
+    <div class="c-card">
+      <div class="c-card-icon">📞</div>
+      <h4>Call Us Anytime</h4>
+      <p>Our friendly reception team is available 7 days a week to assist with appointments and queries.</p>
+      <div class="c-val">+91 9533957640</div>
+    </div>
+    <div class="c-card">
+      <div class="c-card-icon">📍</div>
+      <h4>Visit the Clinic</h4>
+      <p>Beside Apollo Medical, Station Road, Shivaji Chowk, Adilabad</p>
+      <div class="c-val" style="font-size:.8rem;margin-top:.4rem">Mon–Sat: 9AM–8PM · Sun: 10AM–2PM</div>
+    </div>
+    <div class="c-card">
+      <div class="c-card-icon">💬</div>
+      <h4>WhatsApp Us</h4>
+      <p>Send us a WhatsApp message for fast appointment booking, queries, or to share X-rays before your visit.</p>
+      <div class="c-val">Chat on WhatsApp →</div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ FOOTER ════════════════════════════════════════════ -->
+<footer>
+  <div class="footer-top">
+    <div class="f-brand">
+      <a href="#" class="nav-logo">
+        <div class="nav-logo-icon">A</div>
+        <div class="nav-logo-text">
+          <span class="nav-logo-main" style="color:#fff">Akbani Dental</span>
+          <span class="nav-logo-sub">Clinic</span>
+        </div>
+      </a>
+      <p>Delivering compassionate, world-class dental care to the people of Aurangabad since 2008 — one smile at a time.</p>
+    </div>
+    <div class="f-col">
+      <h5>Treatments</h5>
+      <ul>
+        <li><a href="#">Root Canal Treatment</a></li>
+        <li><a href="#">Dental Implants</a></li>
+        <li><a href="#">Teeth Braces</a></li>
+        <li><a href="#">Clear Aligners</a></li>
+        <li><a href="#">Teeth Cleaning</a></li>
+        <li><a href="#">Tooth Crown &amp; Bridge</a></li>
+        <li><a href="#">Gingivitis Treatment</a></li>
+      </ul>
+    </div>
+    <div class="f-col">
+      <h5>Clinic</h5>
+      <ul>
+        <li><a href="#">About Dr. Akbani</a></li>
+        <li><a href="#">Why Choose Us</a></li>
+        <li><a href="#">Patient Reviews</a></li>
+        <li><a href="#">Before &amp; After Gallery</a></li>
+        <li><a href="#">Blog &amp; Dental Tips</a></li>
+      </ul>
+    </div>
+    <div class="f-col">
+      <h5>Contact</h5>
+      <ul>
+        <li><a href="#">Book Appointment</a></li>
+        <li><a href="#">+91 98765 43210</a></li>
+        <li><a href="#">info@akbanidental.com</a></li>
+        <li><a href="#">Emergency Dental Care</a></li>
+        <li><a href="#">Get Directions</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2025 Akbani Dental Clinic · Dr. Faisal Akbani · All rights reserved.</span>
+    <div class="f-socials">
+      <a href="#" class="f-soc">📘</a>
+      <a href="#" class="f-soc">📸</a>
+      <a href="#" class="f-soc">▶️</a>
+      <a href="#" class="f-soc">🐦</a>
+    </div>
+    <span>Privacy Policy &nbsp;·&nbsp; Terms of Use</span>
+  </div>
+</footer>
+
+<script>
+  // Nav scroll shadow
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY > 40));
+
+  // Mobile menu
+  const menu = document.getElementById('mobMenu');
+  document.getElementById('hamburger').addEventListener('click', () => menu.classList.add('open'));
+  document.getElementById('mobClose').addEventListener('click', () => menu.classList.remove('open'));
+  document.querySelectorAll('.mob-link').forEach(l => l.addEventListener('click', () => menu.classList.remove('open')));
+
+  // Reveal on scroll
+  const reveals = document.querySelectorAll('.reveal');
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting) return;
+      const siblings = [...entry.target.parentElement.querySelectorAll('.reveal')];
+      const idx = siblings.indexOf(entry.target);
+      entry.target.style.transitionDelay = `${idx * 70}ms`;
+      entry.target.classList.add('visible');
+      io.unobserve(entry.target);
+    });
+  }, { threshold: 0.1 });
+  reveals.forEach(el => io.observe(el));
+</script>
+</body>
+</html>
