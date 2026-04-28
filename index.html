@@ -63,28 +63,7 @@ ul{list-style:none}
 .delay-4{transition-delay:.32s!important}
 .delay-5{transition-delay:.40s!important}
 
-/* ═══════════════════════════════════════════════
-   TOPBAR
-═══════════════════════════════════════════════ */
-.topbar{
-  background:var(--teal-dk);
-  padding:.45rem 5vw;
-  display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:.5rem;
-}
-.topbar-info{display:flex;gap:1.5rem;flex-wrap:wrap}
-.topbar-item{
-  display:flex;align-items:center;gap:.4rem;
-  font-size:.78rem;color:rgba(255,255,255,.8);font-weight:500;
-}
-.topbar-item span.ic{font-size:.9rem}
-.topbar-cta{
-  display:flex;align-items:center;gap:.4rem;
-  background:var(--gold);color:var(--charcoal);
-  padding:.35rem 1rem;border-radius:2rem;
-  font-size:.78rem;font-weight:700;letter-spacing:.02em;
-  transition:transform .2s,box-shadow .2s;
-}
-.topbar-cta:hover{transform:translateY(-1px);box-shadow:0 4px 16px rgba(232,160,32,.4)}
+
 
 /* ═══════════════════════════════════════════════
    NAV
@@ -632,7 +611,6 @@ footer{
   .foot-top{grid-template-columns:1fr 1fr}
   .nav-links,.nav-book{display:none}
   .ham{display:flex}
-  .topbar-info{gap:.75rem}
 }
 @media(max-width:600px){
   .treat-grid{grid-template-columns:1fr 1fr}
@@ -646,22 +624,11 @@ footer{
 }
 @media(max-width:430px){
   .treat-grid{grid-template-columns:1fr}
-  .topbar-info{flex-direction:column;gap:.3rem}
   .doc-actions{flex-direction:column;align-items:flex-start}
 }
 </style>
 </head>
 <body>
-
-<!-- ░░░ TOPBAR ░░░ -->
-<div class="topbar">
-  <div class="topbar-info">
-    <div class="topbar-item"><span class="ic">📞</span> 9533957640</div>
-    <div class="topbar-item"><span class="ic">📍</span> Beside Apollo Medical, Station Road, Shivaji Chowk, Adilabad</div>
-    <div class="topbar-item"><span class="ic">🕐</span> Mon–Sat: 9AM – 8PM</div>
-  </div>
-  <a href="tel:9533957640" class="topbar-cta">📲 Call Now</a>
-</div>
 
 <!-- ░░░ NAV ░░░ -->
 <nav id="nav">
@@ -678,8 +645,9 @@ footer{
       <li><a href="#treatments">Treatments</a></li>
       <li><a href="#why">Why Us</a></li>
       <li><a href="#contact">Contact</a></li>
+      <li><a href="tel:9533957640" style="display:flex;align-items:center;gap:.35rem;color:var(--teal);font-weight:700;">📞 9533957640</a></li>
     </ul>
-    <a href="tel:9533957640" class="nav-book">📞 Book Appointment</a>
+    <a href="#contact" class="nav-book">📅 Book Appointment</a>
     <button class="ham" id="ham" aria-label="Menu">
       <span></span><span></span><span></span>
     </button>
